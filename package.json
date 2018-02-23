@@ -1,7 +1,7 @@
 {
-  "name": "angular-calendar-coach-plus",
-  "version": "0.1.0",
-  "description": "An extension of mattlewis92 Angular Calendar for Coach+ usage",
+  "name": "angular-calendar",
+  "version": "0.3.0",
+  "description": "An extension of mattlewis92 Angular Calendar",
   "scripts": {
     "start": "webpack-dev-server --open",
     "build:demos": "webpack --env=production",
@@ -10,6 +10,8 @@
     "build:dist": "npm run build:package && npm run build:ngc && npm run build:styles && npm run copyfiles",
     "build:styles": "node-sass src/angular-calendar.scss | postcss --output dist/css/angular-calendar.css",
     "build:clean": "rm -rf dist",
+    "test": "karma start --single-run && npm run build:dist && npm run build:clean",
+    "test:watch": "karma start --auto-watch"
   },
   "ngPackage": {
     "lib": {
@@ -64,8 +66,12 @@
     "angular5",
     "calendar"
   ],
-  "author": "Carlo Busa",
+  "author": "Matt Lewis",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arlito/angular-calendar/issues"
+  },
+  "homepage": "https://github.com/arlito/angular-calendar#readme",
   "devDependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^5.0.4",
