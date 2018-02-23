@@ -53,9 +53,13 @@ export interface WeekViewEventResize {
         (dayHeaderClicked)="dayHeaderClicked.emit($event)"
         (eventDropped)="eventTimesChanged.emit($event)">
       </mwl-calendar-week-view-header>
-      <mwl-calendar-day-view 
-        *ngFor="let day of days" [viewDate]="day.date" [events]="events">
-      </mwl-calendar-day-view>
+      <div class="cal-week-view-days">
+        <mwl-calendar-day-view
+          class="cal-week-view-day"
+          *ngFor="let day of days" [viewDate]="day.date" [events]="events">
+        </mwl-calendar-day-view>
+      </div>
+     
       <!--<div *ngFor="let eventRow of eventRows" #eventRowContainer class="cal-events-row">-->
         <!--<div-->
           <!--*ngFor="let weekEvent of eventRow.row"-->

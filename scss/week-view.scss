@@ -74,4 +74,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  .cal-week-view-days {
+    display: flex;
+    flex-direction: row;
+  }
 }
