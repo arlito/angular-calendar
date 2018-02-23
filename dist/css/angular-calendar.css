@@ -219,6 +219,16 @@
      text-overflow: ellipsis;
   white-space: nowrap; }
 
+.cal-week-view .cal-week-view-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
 .cal-day-view {
   /* stylelint-disable-next-line selector-type-no-unknown */ }
   .cal-day-view .cal-hour-rows {
