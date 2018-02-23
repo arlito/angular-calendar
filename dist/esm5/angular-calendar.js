@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, ElementRef, EventEmitter, HostListener, Inject, Injectable, InjectionToken, Injector, Input, LOCALE_ID, NgModule, Output, Pipe, Renderer2, ViewContainerRef } from '@angular/core';
 import { DragAndDropModule, DraggableHelper } from 'angular-draggable-droppable';
 import { CommonModule, DOCUMENT, DatePipe } from '@angular/common';
@@ -24,113 +34,71 @@ import addSeconds from 'date-fns/add_seconds/index';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ResizableModule } from 'angular-resizable-element';
 import addMinutes from 'date-fns/add_minutes/index';
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarEventActionsComponent {
-}
+var CalendarEventActionsComponent = /** @class */ (function () {
+    function CalendarEventActionsComponent() {
+    }
+    return CalendarEventActionsComponent;
+}());
 CalendarEventActionsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-event-actions',
-                template: `
-    <span *ngIf="event.actions" class="cal-event-actions">
-      <a
-        class="cal-event-action"
-        href="javascript:;"
-        *ngFor="let action of event.actions"
-        (mwlClick)="action.onClick({event: event})"
-        [ngClass]="action.cssClass"
-        [innerHtml]="action.label">
-      </a>
-    </span>
-  `
+                template: "\n    <span *ngIf=\"event.actions\" class=\"cal-event-actions\">\n      <a\n        class=\"cal-event-action\"\n        href=\"javascript:;\"\n        *ngFor=\"let action of event.actions\"\n        (mwlClick)=\"action.onClick({event: event})\"\n        [ngClass]=\"action.cssClass\"\n        [innerHtml]=\"action.label\">\n      </a>\n    </span>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarEventActionsComponent.ctorParameters = () => [];
+CalendarEventActionsComponent.ctorParameters = function () { return []; };
 CalendarEventActionsComponent.propDecorators = {
     "event": [{ type: Input },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarEventTitleComponent {
-}
+var CalendarEventTitleComponent = /** @class */ (function () {
+    function CalendarEventTitleComponent() {
+    }
+    return CalendarEventTitleComponent;
+}());
 CalendarEventTitleComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-event-title',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-event="event"
-      let-view="view">
-      <a
-        class="cal-event-title"
-        href="javascript:;"
-        [innerHTML]="event.title | calendarEventTitle:view:event">
-      </a>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        event: event,
-        view: view
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-event=\"event\"\n      let-view=\"view\">\n      <a\n        class=\"cal-event-title\"\n        href=\"javascript:;\"\n        [innerHTML]=\"event.title | calendarEventTitle:view:event\">\n      </a>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        event: event,\n        view: view\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarEventTitleComponent.ctorParameters = () => [];
+CalendarEventTitleComponent.ctorParameters = function () { return []; };
 CalendarEventTitleComponent.propDecorators = {
     "event": [{ type: Input },],
     "customTemplate": [{ type: Input },],
     "view": [{ type: Input },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarTooltipWindowComponent {
-}
+var CalendarTooltipWindowComponent = /** @class */ (function () {
+    function CalendarTooltipWindowComponent() {
+    }
+    return CalendarTooltipWindowComponent;
+}());
 CalendarTooltipWindowComponent.decorators = [
     { type: Component, args: [{
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-contents="contents"
-      let-placement="placement"
-      let-event="event">
-      <div class="cal-tooltip" [ngClass]="'cal-tooltip-' + placement">
-        <div class="cal-tooltip-arrow"></div>
-        <div class="cal-tooltip-inner" [innerHtml]="contents"></div>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        contents: contents,
-        placement: placement,
-        event: event
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-contents=\"contents\"\n      let-placement=\"placement\"\n      let-event=\"event\">\n      <div class=\"cal-tooltip\" [ngClass]=\"'cal-tooltip-' + placement\">\n        <div class=\"cal-tooltip-arrow\"></div>\n        <div class=\"cal-tooltip-inner\" [innerHtml]=\"contents\"></div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        contents: contents,\n        placement: placement,\n        event: event\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarTooltipWindowComponent.ctorParameters = () => [];
+CalendarTooltipWindowComponent.ctorParameters = function () { return []; };
 CalendarTooltipWindowComponent.propDecorators = {
     "contents": [{ type: Input },],
     "placement": [{ type: Input },],
     "event": [{ type: Input },],
     "customTemplate": [{ type: Input },],
 };
-class CalendarTooltipDirective {
+var CalendarTooltipDirective = /** @class */ (function () {
     /**
      * @param {?} elementRef
      * @param {?} injector
@@ -139,7 +107,7 @@ class CalendarTooltipDirective {
      * @param {?} viewContainerRef
      * @param {?} document
      */
-    constructor(elementRef, injector, renderer, componentFactoryResolver, viewContainerRef, document //tslint:disable-line
+    function CalendarTooltipDirective(elementRef, injector, renderer, componentFactoryResolver, viewContainerRef, document //tslint:disable-line
         //tslint:disable-line
     ) {
         this.elementRef = elementRef;
@@ -147,7 +115,7 @@ class CalendarTooltipDirective {
         this.renderer = renderer;
         this.viewContainerRef = viewContainerRef;
         this.document //tslint:disable-line
-         = document;
+            = document;
         this.placement = 'top';
         this.positioning = new Positioning();
         this.tooltipFactory = componentFactoryResolver.resolveComponentFactory(CalendarTooltipWindowComponent);
@@ -155,25 +123,26 @@ class CalendarTooltipDirective {
     /**
      * @return {?}
      */
-    ngOnDestroy() {
+    CalendarTooltipDirective.prototype.ngOnDestroy = function () {
         this.hide();
-    }
+    };
     /**
      * @return {?}
      */
-    onMouseOver() {
+    CalendarTooltipDirective.prototype.onMouseOver = function () {
         this.show();
-    }
+    };
     /**
      * @return {?}
      */
-    onMouseOut() {
+    CalendarTooltipDirective.prototype.onMouseOut = function () {
         this.hide();
-    }
+    };
     /**
      * @return {?}
      */
-    show() {
+    CalendarTooltipDirective.prototype.show = function () {
+        var _this = this;
         if (!this.tooltipRef && this.contents) {
             this.tooltipRef = this.viewContainerRef.createComponent(this.tooltipFactory, 0, this.injector, []);
             this.tooltipRef.instance.contents = this.contents;
@@ -183,47 +152,48 @@ class CalendarTooltipDirective {
             if (this.appendToBody) {
                 this.document.body.appendChild(this.tooltipRef.location.nativeElement);
             }
-            requestAnimationFrame(() => {
-                this.positionTooltip();
+            requestAnimationFrame(function () {
+                _this.positionTooltip();
             });
         }
-    }
+    };
     /**
      * @return {?}
      */
-    hide() {
+    CalendarTooltipDirective.prototype.hide = function () {
         if (this.tooltipRef) {
             this.viewContainerRef.remove(this.viewContainerRef.indexOf(this.tooltipRef.hostView));
             this.tooltipRef = null;
         }
-    }
+    };
     /**
      * @return {?}
      */
-    positionTooltip() {
+    CalendarTooltipDirective.prototype.positionTooltip = function () {
         if (this.tooltipRef) {
-            const /** @type {?} */ targetPosition = this.positioning.positionElements(this.elementRef.nativeElement, this.tooltipRef.location.nativeElement.children[0], this.placement, this.appendToBody);
-            const /** @type {?} */ elm = this.tooltipRef.location.nativeElement
+            var /** @type {?} */ targetPosition = this.positioning.positionElements(this.elementRef.nativeElement, this.tooltipRef.location.nativeElement.children[0], this.placement, this.appendToBody);
+            var /** @type {?} */ elm = this.tooltipRef.location.nativeElement
                 .children[0];
-            this.renderer.setStyle(elm, 'top', `${targetPosition.top}px`);
-            this.renderer.setStyle(elm, 'left', `${targetPosition.left}px`);
+            this.renderer.setStyle(elm, 'top', targetPosition.top + "px");
+            this.renderer.setStyle(elm, 'left', targetPosition.left + "px");
         }
-    }
-}
+    };
+    return CalendarTooltipDirective;
+}());
 CalendarTooltipDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[mwlCalendarTooltip]'
             },] },
 ];
 /** @nocollapse */
-CalendarTooltipDirective.ctorParameters = () => [
+CalendarTooltipDirective.ctorParameters = function () { return [
     { type: ElementRef, },
     { type: Injector, },
     { type: Renderer2, },
     { type: ComponentFactoryResolver, },
     { type: ViewContainerRef, },
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] },] },
-];
+]; };
 CalendarTooltipDirective.propDecorators = {
     "contents": [{ type: Input, args: ['mwlCalendarTooltip',] },],
     "placement": [{ type: Input, args: ['tooltipPlacement',] },],
@@ -233,7 +203,6 @@ CalendarTooltipDirective.propDecorators = {
     "onMouseOver": [{ type: HostListener, args: ['mouseenter',] },],
     "onMouseOut": [{ type: HostListener, args: ['mouseleave',] },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -250,8 +219,8 @@ CalendarTooltipDirective.propDecorators = {
  * </button>
  * ```
  */
-class CalendarPreviousViewDirective {
-    constructor() {
+var CalendarPreviousViewDirective = /** @class */ (function () {
+    function CalendarPreviousViewDirective() {
         /**
          * Called when the view date is changed
          */
@@ -261,29 +230,29 @@ class CalendarPreviousViewDirective {
      * @hidden
      * @return {?}
      */
-    onClick() {
-        const /** @type {?} */ subFn = {
+    CalendarPreviousViewDirective.prototype.onClick = function () {
+        var /** @type {?} */ subFn = {
             day: subDays,
             week: subWeeks,
             month: subMonths
         }[this.view];
         this.viewDateChange.emit(subFn(this.viewDate, 1));
-    }
-}
+    };
+    return CalendarPreviousViewDirective;
+}());
 CalendarPreviousViewDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[mwlCalendarPreviousView]'
             },] },
 ];
 /** @nocollapse */
-CalendarPreviousViewDirective.ctorParameters = () => [];
+CalendarPreviousViewDirective.ctorParameters = function () { return []; };
 CalendarPreviousViewDirective.propDecorators = {
     "view": [{ type: Input },],
     "viewDate": [{ type: Input },],
     "viewDateChange": [{ type: Output },],
     "onClick": [{ type: HostListener, args: ['click',] },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -300,8 +269,8 @@ CalendarPreviousViewDirective.propDecorators = {
  * </button>
  * ```
  */
-class CalendarNextViewDirective {
-    constructor() {
+var CalendarNextViewDirective = /** @class */ (function () {
+    function CalendarNextViewDirective() {
         /**
          * Called when the view date is changed
          */
@@ -311,29 +280,29 @@ class CalendarNextViewDirective {
      * @hidden
      * @return {?}
      */
-    onClick() {
-        const /** @type {?} */ addFn = {
+    CalendarNextViewDirective.prototype.onClick = function () {
+        var /** @type {?} */ addFn = {
             day: addDays,
             week: addWeeks,
             month: addMonths
         }[this.view];
         this.viewDateChange.emit(addFn(this.viewDate, 1));
-    }
-}
+    };
+    return CalendarNextViewDirective;
+}());
 CalendarNextViewDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[mwlCalendarNextView]'
             },] },
 ];
 /** @nocollapse */
-CalendarNextViewDirective.ctorParameters = () => [];
+CalendarNextViewDirective.ctorParameters = function () { return []; };
 CalendarNextViewDirective.propDecorators = {
     "view": [{ type: Input },],
     "viewDate": [{ type: Input },],
     "viewDateChange": [{ type: Output },],
     "onClick": [{ type: HostListener, args: ['click',] },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -349,8 +318,8 @@ CalendarNextViewDirective.propDecorators = {
  * </button>
  * ```
  */
-class CalendarTodayDirective {
-    constructor() {
+var CalendarTodayDirective = /** @class */ (function () {
+    function CalendarTodayDirective() {
         /**
          * Called when the view date is changed
          */
@@ -360,23 +329,23 @@ class CalendarTodayDirective {
      * @hidden
      * @return {?}
      */
-    onClick() {
+    CalendarTodayDirective.prototype.onClick = function () {
         this.viewDateChange.emit(startOfToday());
-    }
-}
+    };
+    return CalendarTodayDirective;
+}());
 CalendarTodayDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[mwlCalendarToday]'
             },] },
 ];
 /** @nocollapse */
-CalendarTodayDirective.ctorParameters = () => [];
+CalendarTodayDirective.ctorParameters = function () { return []; };
 CalendarTodayDirective.propDecorators = {
     "viewDate": [{ type: Input },],
     "viewDateChange": [{ type: Output },],
     "onClick": [{ type: HostListener, args: ['click',] },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -384,75 +353,85 @@ CalendarTodayDirective.propDecorators = {
 /**
  * This will use the angular date pipe to do all date formatting. It is the default date formatter used by the calendar.
  */
-class CalendarAngularDateFormatter {
+var CalendarAngularDateFormatter = /** @class */ (function () {
+    function CalendarAngularDateFormatter() {
+    }
     /**
      * The month view header week day labels
      * @param {?} __0
      * @return {?}
      */
-    monthViewColumnHeader({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.monthViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'EEEE', locale);
-    }
+    };
     /**
      * The month view cell day number
      * @param {?} __0
      * @return {?}
      */
-    monthViewDayNumber({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.monthViewDayNumber = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'd', locale);
-    }
+    };
     /**
      * The month view title
      * @param {?} __0
      * @return {?}
      */
-    monthViewTitle({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.monthViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'MMMM y', locale);
-    }
+    };
     /**
      * The week view header week day labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnHeader({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.weekViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'EEEE', locale);
-    }
+    };
     /**
      * The week view sub header day and month labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnSubHeader({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.weekViewColumnSubHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'MMM d', locale);
-    }
+    };
     /**
      * The week view title
      * @param {?} __0
      * @return {?}
      */
-    weekViewTitle({ date, locale }) {
-        const /** @type {?} */ year = new DatePipe(locale).transform(date, 'y', locale);
-        const /** @type {?} */ weekNumber = getISOWeek(date);
-        return `Week ${weekNumber} of ${year}`;
-    }
+    CalendarAngularDateFormatter.prototype.weekViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
+        var /** @type {?} */ year = new DatePipe(locale).transform(date, 'y', locale);
+        var /** @type {?} */ weekNumber = getISOWeek(date);
+        return "Week " + weekNumber + " of " + year;
+    };
     /**
      * The time formatting down the left hand side of the day view
      * @param {?} __0
      * @return {?}
      */
-    dayViewHour({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.dayViewHour = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'h a', locale);
-    }
+    };
     /**
      * The day view title
      * @param {?} __0
      * @return {?}
      */
-    dayViewTitle({ date, locale }) {
+    CalendarAngularDateFormatter.prototype.dayViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new DatePipe(locale).transform(date, 'EEEE, MMMM d, y', locale);
-    }
-}
-
+    };
+    return CalendarAngularDateFormatter;
+}());
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -481,9 +460,13 @@ class CalendarAngularDateFormatter {
  * }]
  * ```
  */
-class CalendarDateFormatter extends CalendarAngularDateFormatter {
-}
-
+var CalendarDateFormatter = /** @class */ (function (_super) {
+    __extends(CalendarDateFormatter, _super);
+    function CalendarDateFormatter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return CalendarDateFormatter;
+}(CalendarAngularDateFormatter));
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -495,12 +478,12 @@ class CalendarDateFormatter extends CalendarAngularDateFormatter {
  * {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
  * ```
  */
-class CalendarDatePipe {
+var CalendarDatePipe = /** @class */ (function () {
     /**
      * @param {?} dateFormatter
      * @param {?} locale
      */
-    constructor(dateFormatter, locale) {
+    function CalendarDatePipe(dateFormatter, locale) {
         this.dateFormatter = dateFormatter;
         this.locale = locale;
     }
@@ -510,21 +493,22 @@ class CalendarDatePipe {
      * @param {?=} locale
      * @return {?}
      */
-    transform(date, method, locale = this.locale) {
-        return this.dateFormatter[method]({ date, locale });
-    }
-}
+    CalendarDatePipe.prototype.transform = function (date, method, locale) {
+        if (locale === void 0) { locale = this.locale; }
+        return this.dateFormatter[method]({ date: date, locale: locale });
+    };
+    return CalendarDatePipe;
+}());
 CalendarDatePipe.decorators = [
     { type: Pipe, args: [{
                 name: 'calendarDate'
             },] },
 ];
 /** @nocollapse */
-CalendarDatePipe.ctorParameters = () => [
+CalendarDatePipe.ctorParameters = function () { return [
     { type: CalendarDateFormatter, },
     { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
-];
-
+]; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -550,66 +534,68 @@ CalendarDatePipe.ctorParameters = () => [
  * }]
  * ```
  */
-class CalendarEventTitleFormatter {
+var CalendarEventTitleFormatter = /** @class */ (function () {
+    function CalendarEventTitleFormatter() {
+    }
     /**
      * The month view event title.
      * @param {?} event
      * @return {?}
      */
-    month(event) {
+    CalendarEventTitleFormatter.prototype.month = function (event) {
         return event.title;
-    }
+    };
     /**
      * The month view event tooltip. Return a falsey value from this to disable the tooltip.
      * @param {?} event
      * @return {?}
      */
-    monthTooltip(event) {
+    CalendarEventTitleFormatter.prototype.monthTooltip = function (event) {
         return event.title;
-    }
+    };
     /**
      * The week view event title.
      * @param {?} event
      * @return {?}
      */
-    week(event) {
+    CalendarEventTitleFormatter.prototype.week = function (event) {
         return event.title;
-    }
+    };
     /**
      * The week view event tooltip. Return a falsey value from this to disable the tooltip.
      * @param {?} event
      * @return {?}
      */
-    weekTooltip(event) {
+    CalendarEventTitleFormatter.prototype.weekTooltip = function (event) {
         return event.title;
-    }
+    };
     /**
      * The day view event title.
      * @param {?} event
      * @return {?}
      */
-    day(event) {
+    CalendarEventTitleFormatter.prototype.day = function (event) {
         return event.title;
-    }
+    };
     /**
      * The day view event tooltip. Return a falsey value from this to disable the tooltip.
      * @param {?} event
      * @return {?}
      */
-    dayTooltip(event) {
+    CalendarEventTitleFormatter.prototype.dayTooltip = function (event) {
         return event.title;
-    }
-}
-
+    };
+    return CalendarEventTitleFormatter;
+}());
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarEventTitlePipe {
+var CalendarEventTitlePipe = /** @class */ (function () {
     /**
      * @param {?} calendarEventTitle
      */
-    constructor(calendarEventTitle) {
+    function CalendarEventTitlePipe(calendarEventTitle) {
         this.calendarEventTitle = calendarEventTitle;
     }
     /**
@@ -618,30 +604,30 @@ class CalendarEventTitlePipe {
      * @param {?} event
      * @return {?}
      */
-    transform(title, titleType, event) {
+    CalendarEventTitlePipe.prototype.transform = function (title, titleType, event) {
         return this.calendarEventTitle[titleType](event);
-    }
-}
+    };
+    return CalendarEventTitlePipe;
+}());
 CalendarEventTitlePipe.decorators = [
     { type: Pipe, args: [{
                 name: 'calendarEventTitle'
             },] },
 ];
 /** @nocollapse */
-CalendarEventTitlePipe.ctorParameters = () => [
+CalendarEventTitlePipe.ctorParameters = function () { return [
     { type: CalendarEventTitleFormatter, },
-];
-
+]; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class ClickDirective {
+var ClickDirective = /** @class */ (function () {
     /**
      * @param {?} renderer
      * @param {?} elm
      */
-    constructor(renderer, elm) {
+    function ClickDirective(renderer, elm) {
         this.renderer = renderer;
         this.elm = elm;
         this.click = new EventEmitter();
@@ -649,87 +635,90 @@ class ClickDirective {
     /**
      * @return {?}
      */
-    ngOnInit() {
-        const /** @type {?} */ eventName = typeof window !== 'undefined' && typeof window['Hammer'] !== 'undefined'
+    ClickDirective.prototype.ngOnInit = function () {
+        var _this = this;
+        var /** @type {?} */ eventName = typeof window !== 'undefined' && typeof window['Hammer'] !== 'undefined'
             ? 'tap'
             : 'click';
-        this.removeListener = this.renderer.listen(this.elm.nativeElement, eventName, event => {
-            this.click.next(event);
+        this.removeListener = this.renderer.listen(this.elm.nativeElement, eventName, function (event) {
+            _this.click.next(event);
         });
-    }
+    };
     /**
      * @return {?}
      */
-    ngOnDestroy() {
+    ClickDirective.prototype.ngOnDestroy = function () {
         this.removeListener();
-    }
-}
+    };
+    return ClickDirective;
+}());
 ClickDirective.decorators = [
     { type: Directive, args: [{
                 selector: '[mwlClick]'
             },] },
 ];
 /** @nocollapse */
-ClickDirective.ctorParameters = () => [
+ClickDirective.ctorParameters = function () { return [
     { type: Renderer2, },
     { type: ElementRef, },
-];
+]; };
 ClickDirective.propDecorators = {
     "click": [{ type: Output, args: ['mwlClick',] },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarUtils {
+var CalendarUtils = /** @class */ (function () {
+    function CalendarUtils() {
+    }
     /**
      * @param {?} args
      * @return {?}
      */
-    getMonthView(args) {
+    CalendarUtils.prototype.getMonthView = function (args) {
         return getMonthView(args);
-    }
+    };
     /**
      * @param {?} args
      * @return {?}
      */
-    getWeekViewHeader(args) {
+    CalendarUtils.prototype.getWeekViewHeader = function (args) {
         return getWeekViewHeader(args);
-    }
+    };
     /**
      * @param {?} args
      * @return {?}
      */
-    getWeekView(args) {
+    CalendarUtils.prototype.getWeekView = function (args) {
         return getWeekView(args);
-    }
+    };
     /**
      * @param {?} args
      * @return {?}
      */
-    getDayView(args) {
+    CalendarUtils.prototype.getDayView = function (args) {
         return getDayView(args);
-    }
+    };
     /**
      * @param {?} args
      * @return {?}
      */
-    getDayViewHourGrid(args) {
+    CalendarUtils.prototype.getDayViewHourGrid = function (args) {
         return getDayViewHourGrid(args);
-    }
-}
+    };
+    return CalendarUtils;
+}());
 CalendarUtils.decorators = [
     { type: Injectable },
 ];
 /** @nocollapse */
-CalendarUtils.ctorParameters = () => [];
-
+CalendarUtils.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-const MOMENT = new InjectionToken('Moment');
+var MOMENT = new InjectionToken('Moment');
 /**
  * This will use <a href="http://momentjs.com/" target="_blank">moment</a> to do all date formatting. To use this class:
  *
@@ -746,12 +735,12 @@ const MOMENT = new InjectionToken('Moment');
  *
  * ```
  */
-class CalendarMomentDateFormatter {
+var CalendarMomentDateFormatter = /** @class */ (function () {
     /**
      * @hidden
      * @param {?} moment
      */
-    constructor(moment) {
+    function CalendarMomentDateFormatter(moment) {
         this.moment = moment;
     }
     /**
@@ -759,87 +748,95 @@ class CalendarMomentDateFormatter {
      * @param {?} __0
      * @return {?}
      */
-    monthViewColumnHeader({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.monthViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('dddd');
-    }
+    };
     /**
      * The month view cell day number
      * @param {?} __0
      * @return {?}
      */
-    monthViewDayNumber({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.monthViewDayNumber = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('D');
-    }
+    };
     /**
      * The month view title
      * @param {?} __0
      * @return {?}
      */
-    monthViewTitle({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.monthViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('MMMM YYYY');
-    }
+    };
     /**
      * The week view header week day labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnHeader({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.weekViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('dddd');
-    }
+    };
     /**
      * The week view sub header day and month labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnSubHeader({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.weekViewColumnSubHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('D MMM');
-    }
+    };
     /**
      * The week view title
      * @param {?} __0
      * @return {?}
      */
-    weekViewTitle({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.weekViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('[Week] W [of] YYYY');
-    }
+    };
     /**
      * The time formatting down the left hand side of the day view
      * @param {?} __0
      * @return {?}
      */
-    dayViewHour({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.dayViewHour = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('ha');
-    }
+    };
     /**
      * The day view title
      * @param {?} __0
      * @return {?}
      */
-    dayViewTitle({ date, locale }) {
+    CalendarMomentDateFormatter.prototype.dayViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return this.moment(date)
             .locale(locale)
             .format('dddd, D MMMM, YYYY');
-    }
-}
+    };
+    return CalendarMomentDateFormatter;
+}());
 /** @nocollapse */
-CalendarMomentDateFormatter.ctorParameters = () => [
+CalendarMomentDateFormatter.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: Inject, args: [MOMENT,] },] },
-];
-
+]; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -849,88 +846,98 @@ CalendarMomentDateFormatter.ctorParameters = () => [
  *
  * You will need to include a <a href="https://github.com/andyearnshaw/Intl.js/">polyfill</a> for older browsers.
  */
-class CalendarNativeDateFormatter {
+var CalendarNativeDateFormatter = /** @class */ (function () {
+    function CalendarNativeDateFormatter() {
+    }
     /**
      * The month view header week day labels
      * @param {?} __0
      * @return {?}
      */
-    monthViewColumnHeader({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.monthViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
-    }
+    };
     /**
      * The month view cell day number
      * @param {?} __0
      * @return {?}
      */
-    monthViewDayNumber({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.monthViewDayNumber = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, { day: 'numeric' }).format(date);
-    }
+    };
     /**
      * The month view title
      * @param {?} __0
      * @return {?}
      */
-    monthViewTitle({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.monthViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, {
             year: 'numeric',
             month: 'long'
         }).format(date);
-    }
+    };
     /**
      * The week view header week day labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnHeader({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.weekViewColumnHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
-    }
+    };
     /**
      * The week view sub header day and month labels
      * @param {?} __0
      * @return {?}
      */
-    weekViewColumnSubHeader({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.weekViewColumnSubHeader = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, {
             day: 'numeric',
             month: 'short'
         }).format(date);
-    }
+    };
     /**
      * The week view title
      * @param {?} __0
      * @return {?}
      */
-    weekViewTitle({ date, locale }) {
-        const /** @type {?} */ year = new Intl.DateTimeFormat(locale, {
+    CalendarNativeDateFormatter.prototype.weekViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
+        var /** @type {?} */ year = new Intl.DateTimeFormat(locale, {
             year: 'numeric'
         }).format(date);
-        const /** @type {?} */ weekNumber = getISOWeek(date);
-        return `Week ${weekNumber} of ${year}`;
-    }
+        var /** @type {?} */ weekNumber = getISOWeek(date);
+        return "Week " + weekNumber + " of " + year;
+    };
     /**
      * The time formatting down the left hand side of the day view
      * @param {?} __0
      * @return {?}
      */
-    dayViewHour({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.dayViewHour = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, { hour: 'numeric' }).format(date);
-    }
+    };
     /**
      * The day view title
      * @param {?} __0
      * @return {?}
      */
-    dayViewTitle({ date, locale }) {
+    CalendarNativeDateFormatter.prototype.dayViewTitle = function (_a) {
+        var date = _a.date, locale = _a.locale;
         return new Intl.DateTimeFormat(locale, {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
             weekday: 'long'
         }).format(date);
-    }
-}
-
+    };
+    return CalendarNativeDateFormatter;
+}());
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -938,7 +945,6 @@ class CalendarNativeDateFormatter {
 /**
  * @record
  */
-
 /**
  * Import this module to if you're just using a singular view and want to save on bundle size. Example usage:
  *
@@ -956,12 +962,15 @@ class CalendarNativeDateFormatter {
  * ```
  *
  */
-class CalendarCommonModule {
+var CalendarCommonModule = /** @class */ (function () {
+    function CalendarCommonModule() {
+    }
     /**
      * @param {?=} config
      * @return {?}
      */
-    static forRoot(config = {}) {
+    CalendarCommonModule.forRoot = function (config) {
+        if (config === void 0) { config = {}; }
         return {
             ngModule: CalendarCommonModule,
             providers: [
@@ -971,8 +980,9 @@ class CalendarCommonModule {
                 config.utils || CalendarUtils
             ]
         };
-    }
-}
+    };
+    return CalendarCommonModule;
+}());
 CalendarCommonModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [
@@ -1004,14 +1014,19 @@ CalendarCommonModule.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarCommonModule.ctorParameters = () => [];
-
+CalendarCommonModule.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-const validateEvents$1 = (events) => {
-    const /** @type {?} */ warn = (...args) => console.warn('angular-calendar', ...args);
+var validateEvents$1 = function (events) {
+    var /** @type {?} */ warn = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return console.warn.apply(console, ['angular-calendar'].concat(args));
+    };
     return validateEvents(events, warn);
 };
 /**
@@ -1029,7 +1044,6 @@ function isInside(outer, inner) {
         outer.top <= inner.bottom &&
         inner.bottom <= outer.bottom);
 }
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -1037,7 +1051,6 @@ function isInside(outer, inner) {
 /**
  * @record
  */
-
 /**
  * Shows all events on a given month. Example usage:
  *
@@ -1048,14 +1061,14 @@ function isInside(outer, inner) {
  * </mwl-calendar-month-view>
  * ```
  */
-class CalendarMonthViewComponent {
+var CalendarMonthViewComponent = /** @class */ (function () {
     /**
      * @hidden
      * @param {?} cdr
      * @param {?} utils
      * @param {?} locale
      */
-    constructor(cdr, utils, locale) {
+    function CalendarMonthViewComponent(cdr, utils, locale) {
         this.cdr = cdr;
         this.utils = utils;
         /**
@@ -1102,20 +1115,21 @@ class CalendarMonthViewComponent {
      * @hidden
      * @return {?}
      */
-    ngOnInit() {
+    CalendarMonthViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (this.refresh) {
-            this.refreshSubscription = this.refresh.subscribe(() => {
-                this.refreshAll();
-                this.cdr.markForCheck();
+            this.refreshSubscription = this.refresh.subscribe(function () {
+                _this.refreshAll();
+                _this.cdr.markForCheck();
             });
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} changes
      * @return {?}
      */
-    ngOnChanges(changes) {
+    CalendarMonthViewComponent.prototype.ngOnChanges = function (changes) {
         if (changes.viewDate || changes.excludeDays || changes.weekendDays) {
             this.refreshHeader();
         }
@@ -1134,24 +1148,24 @@ class CalendarMonthViewComponent {
             changes.excludeDays) {
             this.checkActiveDayIsOpen();
         }
-    }
+    };
     /**
      * @hidden
      * @return {?}
      */
-    ngOnDestroy() {
+    CalendarMonthViewComponent.prototype.ngOnDestroy = function () {
         if (this.refreshSubscription) {
             this.refreshSubscription.unsubscribe();
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} event
      * @param {?} isHighlighted
      * @return {?}
      */
-    toggleDayHighlight(event, isHighlighted) {
-        this.view.days.forEach(day => {
+    CalendarMonthViewComponent.prototype.toggleDayHighlight = function (event, isHighlighted) {
+        this.view.days.forEach(function (day) {
             if (isHighlighted && day.events.indexOf(event) > -1) {
                 day.backgroundColor = event.color.secondary;
             }
@@ -1159,41 +1173,41 @@ class CalendarMonthViewComponent {
                 delete day.backgroundColor;
             }
         });
-    }
+    };
     /**
      * @hidden
      * @param {?} day
      * @param {?} event
      * @return {?}
      */
-    eventDropped(day, event) {
-        const /** @type {?} */ year = getYear(day.date);
-        const /** @type {?} */ month = getMonth(day.date);
-        const /** @type {?} */ date = getDate(day.date);
-        const /** @type {?} */ newStart = setDate(setMonth(setYear(event.start, year), month), date);
-        let /** @type {?} */ newEnd;
+    CalendarMonthViewComponent.prototype.eventDropped = function (day, event) {
+        var /** @type {?} */ year = getYear(day.date);
+        var /** @type {?} */ month = getMonth(day.date);
+        var /** @type {?} */ date = getDate(day.date);
+        var /** @type {?} */ newStart = setDate(setMonth(setYear(event.start, year), month), date);
+        var /** @type {?} */ newEnd;
         if (event.end) {
-            const /** @type {?} */ secondsDiff = differenceInSeconds(newStart, event.start);
+            var /** @type {?} */ secondsDiff = differenceInSeconds(newStart, event.start);
             newEnd = addSeconds(event.end, secondsDiff);
         }
-        this.eventTimesChanged.emit({ event, newStart, newEnd });
-    }
+        this.eventTimesChanged.emit({ event: event, newStart: newStart, newEnd: newEnd });
+    };
     /**
      * @hidden
      * @param {?} clickEvent
      * @param {?} day
      * @return {?}
      */
-    handleDayClick(clickEvent, day) {
+    CalendarMonthViewComponent.prototype.handleDayClick = function (clickEvent, day) {
         // when using hammerjs, stopPropagation doesn't work. See https://github.com/mattlewis92/angular-calendar/issues/318
         if (!clickEvent.target.classList.contains('cal-event')) {
-            this.dayClicked.emit({ day });
+            this.dayClicked.emit({ day: day });
         }
-    }
+    };
     /**
      * @return {?}
      */
-    refreshHeader() {
+    CalendarMonthViewComponent.prototype.refreshHeader = function () {
         this.columnHeaders = this.utils.getWeekViewHeader({
             viewDate: this.viewDate,
             weekStartsOn: this.weekStartsOn,
@@ -1201,11 +1215,11 @@ class CalendarMonthViewComponent {
             weekendDays: this.weekendDays
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshBody() {
+    CalendarMonthViewComponent.prototype.refreshBody = function () {
         this.view = this.utils.getMonthView({
             events: this.events,
             viewDate: this.viewDate,
@@ -1214,14 +1228,15 @@ class CalendarMonthViewComponent {
             weekendDays: this.weekendDays
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    checkActiveDayIsOpen() {
+    CalendarMonthViewComponent.prototype.checkActiveDayIsOpen = function () {
+        var _this = this;
         if (this.activeDayIsOpen === true) {
-            this.openDay = this.view.days.find(day => isSameDay(day.date, this.viewDate));
-            const /** @type {?} */ index = this.view.days.indexOf(this.openDay);
+            this.openDay = this.view.days.find(function (day) { return isSameDay(day.date, _this.viewDate); });
+            var /** @type {?} */ index = this.view.days.indexOf(this.openDay);
             this.openRowIndex =
                 Math.floor(index / this.view.totalDaysVisibleInWeek) *
                     this.view.totalDaysVisibleInWeek;
@@ -1230,21 +1245,21 @@ class CalendarMonthViewComponent {
             this.openRowIndex = null;
             this.openDay = null;
         }
-    }
+    };
     /**
      * @return {?}
      */
-    refreshAll() {
+    CalendarMonthViewComponent.prototype.refreshAll = function () {
         this.columnHeaders = null;
         this.view = null;
         this.refreshHeader();
         this.refreshBody();
         this.checkActiveDayIsOpen();
-    }
+    };
     /**
      * @return {?}
      */
-    emitBeforeViewRender() {
+    CalendarMonthViewComponent.prototype.emitBeforeViewRender = function () {
         if (this.columnHeaders && this.view) {
             this.beforeViewRender.emit({
                 header: this.columnHeaders,
@@ -1252,61 +1267,21 @@ class CalendarMonthViewComponent {
                 period: this.view.period
             });
         }
-    }
-}
+    };
+    return CalendarMonthViewComponent;
+}());
 CalendarMonthViewComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-month-view',
-                template: `
-    <div class="cal-month-view">
-      <mwl-calendar-month-view-header
-        [days]="columnHeaders"
-        [locale]="locale"
-        [customTemplate]="headerTemplate">
-      </mwl-calendar-month-view-header>
-      <div class="cal-days">
-        <div *ngFor="let rowIndex of view.rowOffsets">
-          <div class="cal-cell-row">
-            <mwl-calendar-month-cell
-              *ngFor="let day of view.days | slice : rowIndex : rowIndex + (view.totalDaysVisibleInWeek)"
-              [class.cal-drag-over]="day.dragOver"
-              [ngClass]="day?.cssClass"
-              [day]="day"
-              [openDay]="openDay"
-              [locale]="locale"
-              [tooltipPlacement]="tooltipPlacement"
-              [tooltipAppendToBody]="tooltipAppendToBody"
-              [tooltipTemplate]="tooltipTemplate"
-              [customTemplate]="cellTemplate"
-              (click)="handleDayClick($event, day)"
-              (highlightDay)="toggleDayHighlight($event.event, true)"
-              (unhighlightDay)="toggleDayHighlight($event.event, false)"
-              mwlDroppable
-              (dragEnter)="day.dragOver = true"
-              (dragLeave)="day.dragOver = false"
-              (drop)="day.dragOver = false; eventDropped(day, $event.dropData.event)"
-              (eventClicked)="eventClicked.emit({event: $event.event})">
-            </mwl-calendar-month-cell>
-          </div>
-          <mwl-calendar-open-day-events
-            [isOpen]="openRowIndex === rowIndex"
-            [events]="openDay?.events"
-            [customTemplate]="openDayEventsTemplate"
-            [eventTitleTemplate]="eventTitleTemplate"
-            (eventClicked)="eventClicked.emit({event: $event.event})">
-          </mwl-calendar-open-day-events>
-        </div>
-      </div>
-    </div>
-  `
+                template: "\n    <div class=\"cal-month-view\">\n      <mwl-calendar-month-view-header\n        [days]=\"columnHeaders\"\n        [locale]=\"locale\"\n        [customTemplate]=\"headerTemplate\">\n      </mwl-calendar-month-view-header>\n      <div class=\"cal-days\">\n        <div *ngFor=\"let rowIndex of view.rowOffsets\">\n          <div class=\"cal-cell-row\">\n            <mwl-calendar-month-cell\n              *ngFor=\"let day of view.days | slice : rowIndex : rowIndex + (view.totalDaysVisibleInWeek)\"\n              [class.cal-drag-over]=\"day.dragOver\"\n              [ngClass]=\"day?.cssClass\"\n              [day]=\"day\"\n              [openDay]=\"openDay\"\n              [locale]=\"locale\"\n              [tooltipPlacement]=\"tooltipPlacement\"\n              [tooltipAppendToBody]=\"tooltipAppendToBody\"\n              [tooltipTemplate]=\"tooltipTemplate\"\n              [customTemplate]=\"cellTemplate\"\n              (click)=\"handleDayClick($event, day)\"\n              (highlightDay)=\"toggleDayHighlight($event.event, true)\"\n              (unhighlightDay)=\"toggleDayHighlight($event.event, false)\"\n              mwlDroppable\n              (dragEnter)=\"day.dragOver = true\"\n              (dragLeave)=\"day.dragOver = false\"\n              (drop)=\"day.dragOver = false; eventDropped(day, $event.dropData.event)\"\n              (eventClicked)=\"eventClicked.emit({event: $event.event})\">\n            </mwl-calendar-month-cell>\n          </div>\n          <mwl-calendar-open-day-events\n            [isOpen]=\"openRowIndex === rowIndex\"\n            [events]=\"openDay?.events\"\n            [customTemplate]=\"openDayEventsTemplate\"\n            [eventTitleTemplate]=\"eventTitleTemplate\"\n            (eventClicked)=\"eventClicked.emit({event: $event.event})\">\n          </mwl-calendar-open-day-events>\n        </div>\n      </div>\n    </div>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarMonthViewComponent.ctorParameters = () => [
+CalendarMonthViewComponent.ctorParameters = function () { return [
     { type: ChangeDetectorRef, },
     { type: CalendarUtils, },
     { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
-];
+]; };
 CalendarMonthViewComponent.propDecorators = {
     "viewDate": [{ type: Input },],
     "events": [{ type: Input },],
@@ -1328,114 +1303,44 @@ CalendarMonthViewComponent.propDecorators = {
     "eventClicked": [{ type: Output },],
     "eventTimesChanged": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarMonthViewHeaderComponent {
-}
+var CalendarMonthViewHeaderComponent = /** @class */ (function () {
+    function CalendarMonthViewHeaderComponent() {
+    }
+    return CalendarMonthViewHeaderComponent;
+}());
 CalendarMonthViewHeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-month-view-header',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-days="days"
-      let-locale="locale">
-      <div class="cal-cell-row cal-header">
-        <div
-          class="cal-cell"
-          *ngFor="let day of days"
-          [class.cal-past]="day.isPast"
-          [class.cal-today]="day.isToday"
-          [class.cal-future]="day.isFuture"
-          [class.cal-weekend]="day.isWeekend"
-          [ngClass]="day.cssClass">
-          {{ day.date | calendarDate:'monthViewColumnHeader':locale }}
-        </div>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{days: days, locale: locale}">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-days=\"days\"\n      let-locale=\"locale\">\n      <div class=\"cal-cell-row cal-header\">\n        <div\n          class=\"cal-cell\"\n          *ngFor=\"let day of days\"\n          [class.cal-past]=\"day.isPast\"\n          [class.cal-today]=\"day.isToday\"\n          [class.cal-future]=\"day.isFuture\"\n          [class.cal-weekend]=\"day.isWeekend\"\n          [ngClass]=\"day.cssClass\">\n          {{ day.date | calendarDate:'monthViewColumnHeader':locale }}\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{days: days, locale: locale}\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarMonthViewHeaderComponent.ctorParameters = () => [];
+CalendarMonthViewHeaderComponent.ctorParameters = function () { return []; };
 CalendarMonthViewHeaderComponent.propDecorators = {
     "days": [{ type: Input },],
     "locale": [{ type: Input },],
     "customTemplate": [{ type: Input },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarMonthCellComponent {
-    constructor() {
+var CalendarMonthCellComponent = /** @class */ (function () {
+    function CalendarMonthCellComponent() {
         this.highlightDay = new EventEmitter();
         this.unhighlightDay = new EventEmitter();
         this.eventClicked = new EventEmitter();
     }
-}
+    return CalendarMonthCellComponent;
+}());
 CalendarMonthCellComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-month-cell',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-day="day"
-      let-openDay="openDay"
-      let-locale="locale"
-      let-tooltipPlacement="tooltipPlacement"
-      let-highlightDay="highlightDay"
-      let-unhighlightDay="unhighlightDay"
-      let-eventClicked="eventClicked"
-      let-tooltipTemplate="tooltipTemplate"
-      let-tooltipAppendToBody="tooltipAppendToBody">
-      <div class="cal-cell-top">
-        <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
-        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
-      </div>
-      <div class="cal-events" *ngIf="day.events.length > 0">
-        <div
-          class="cal-event"
-          *ngFor="let event of day.events"
-          [style.backgroundColor]="event.color.primary"
-          [ngClass]="event?.cssClass"
-          (mouseenter)="highlightDay.emit({event: event})"
-          (mouseleave)="unhighlightDay.emit({event: event})"
-          [mwlCalendarTooltip]="event.title | calendarEventTitle:'monthTooltip':event"
-          [tooltipPlacement]="tooltipPlacement"
-          [tooltipEvent]="event"
-          [tooltipTemplate]="tooltipTemplate"
-          [tooltipAppendToBody]="tooltipAppendToBody"
-          mwlDraggable
-          [dropData]="{event: event}"
-          [dragAxis]="{x: event.draggable, y: event.draggable}"
-          (mwlClick)="eventClicked.emit({ event: event })">
-        </div>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        day: day,
-        openDay: openDay,
-        locale: locale,
-        tooltipPlacement: tooltipPlacement,
-        highlightDay: highlightDay,
-        unhighlightDay: unhighlightDay,
-        eventClicked: eventClicked,
-        tooltipTemplate: tooltipTemplate,
-        tooltipAppendToBody: tooltipAppendToBody
-      }">
-    </ng-template>
-  `,
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-day=\"day\"\n      let-openDay=\"openDay\"\n      let-locale=\"locale\"\n      let-tooltipPlacement=\"tooltipPlacement\"\n      let-highlightDay=\"highlightDay\"\n      let-unhighlightDay=\"unhighlightDay\"\n      let-eventClicked=\"eventClicked\"\n      let-tooltipTemplate=\"tooltipTemplate\"\n      let-tooltipAppendToBody=\"tooltipAppendToBody\">\n      <div class=\"cal-cell-top\">\n        <span class=\"cal-day-badge\" *ngIf=\"day.badgeTotal > 0\">{{ day.badgeTotal }}</span>\n        <span class=\"cal-day-number\">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>\n      </div>\n      <div class=\"cal-events\" *ngIf=\"day.events.length > 0\">\n        <div\n          class=\"cal-event\"\n          *ngFor=\"let event of day.events\"\n          [style.backgroundColor]=\"event.color.primary\"\n          [ngClass]=\"event?.cssClass\"\n          (mouseenter)=\"highlightDay.emit({event: event})\"\n          (mouseleave)=\"unhighlightDay.emit({event: event})\"\n          [mwlCalendarTooltip]=\"event.title | calendarEventTitle:'monthTooltip':event\"\n          [tooltipPlacement]=\"tooltipPlacement\"\n          [tooltipEvent]=\"event\"\n          [tooltipTemplate]=\"tooltipTemplate\"\n          [tooltipAppendToBody]=\"tooltipAppendToBody\"\n          mwlDraggable\n          [dropData]=\"{event: event}\"\n          [dragAxis]=\"{x: event.draggable, y: event.draggable}\"\n          (mwlClick)=\"eventClicked.emit({ event: event })\">\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        day: day,\n        openDay: openDay,\n        locale: locale,\n        tooltipPlacement: tooltipPlacement,\n        highlightDay: highlightDay,\n        unhighlightDay: unhighlightDay,\n        eventClicked: eventClicked,\n        tooltipTemplate: tooltipTemplate,\n        tooltipAppendToBody: tooltipAppendToBody\n      }\">\n    </ng-template>\n  ",
                 host: {
                     class: 'cal-cell cal-day-cell',
                     '[class.cal-past]': 'day.isPast',
@@ -1451,7 +1356,7 @@ CalendarMonthCellComponent.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarMonthCellComponent.ctorParameters = () => [];
+CalendarMonthCellComponent.ctorParameters = function () { return []; };
 CalendarMonthCellComponent.propDecorators = {
     "day": [{ type: Input },],
     "openDay": [{ type: Input },],
@@ -1464,54 +1369,21 @@ CalendarMonthCellComponent.propDecorators = {
     "unhighlightDay": [{ type: Output },],
     "eventClicked": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarOpenDayEventsComponent {
-    constructor() {
+var CalendarOpenDayEventsComponent = /** @class */ (function () {
+    function CalendarOpenDayEventsComponent() {
         this.isOpen = false;
         this.eventClicked = new EventEmitter();
     }
-}
+    return CalendarOpenDayEventsComponent;
+}());
 CalendarOpenDayEventsComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-open-day-events',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-events="events"
-      let-eventClicked="eventClicked">
-      <div
-        *ngFor="let event of events"
-        [ngClass]="event?.cssClass"
-        mwlDraggable
-        [dropData]="{event: event}"
-        [dragAxis]="{x: event.draggable, y: event.draggable}">
-        <span
-          class="cal-event"
-          [style.backgroundColor]="event.color.primary">
-        </span>
-        <mwl-calendar-event-title
-          [event]="event"
-          [customTemplate]="eventTitleTemplate"
-          view="month"
-          (mwlClick)="eventClicked.emit({event: event})">
-        </mwl-calendar-event-title>
-        <mwl-calendar-event-actions [event]="event"></mwl-calendar-event-actions>
-      </div>
-    </ng-template>
-    <div class="cal-open-day-events" [@collapse] *ngIf="isOpen">
-      <ng-template
-        [ngTemplateOutlet]="customTemplate || defaultTemplate"
-        [ngTemplateOutletContext]="{
-          events: events,
-          eventClicked: eventClicked
-        }">
-      </ng-template>
-    </div>
-  `,
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-events=\"events\"\n      let-eventClicked=\"eventClicked\">\n      <div\n        *ngFor=\"let event of events\"\n        [ngClass]=\"event?.cssClass\"\n        mwlDraggable\n        [dropData]=\"{event: event}\"\n        [dragAxis]=\"{x: event.draggable, y: event.draggable}\">\n        <span\n          class=\"cal-event\"\n          [style.backgroundColor]=\"event.color.primary\">\n        </span>\n        <mwl-calendar-event-title\n          [event]=\"event\"\n          [customTemplate]=\"eventTitleTemplate\"\n          view=\"month\"\n          (mwlClick)=\"eventClicked.emit({event: event})\">\n        </mwl-calendar-event-title>\n        <mwl-calendar-event-actions [event]=\"event\"></mwl-calendar-event-actions>\n      </div>\n    </ng-template>\n    <div class=\"cal-open-day-events\" [@collapse] *ngIf=\"isOpen\">\n      <ng-template\n        [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n        [ngTemplateOutletContext]=\"{\n          events: events,\n          eventClicked: eventClicked\n        }\">\n      </ng-template>\n    </div>\n  ",
                 animations: [
                     trigger('collapse', [
                         transition('void => *', [
@@ -1527,7 +1399,7 @@ CalendarOpenDayEventsComponent.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarOpenDayEventsComponent.ctorParameters = () => [];
+CalendarOpenDayEventsComponent.ctorParameters = function () { return []; };
 CalendarOpenDayEventsComponent.propDecorators = {
     "isOpen": [{ type: Input },],
     "events": [{ type: Input },],
@@ -1535,13 +1407,15 @@ CalendarOpenDayEventsComponent.propDecorators = {
     "eventTitleTemplate": [{ type: Input },],
     "eventClicked": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarMonthModule {
-}
+var CalendarMonthModule = /** @class */ (function () {
+    function CalendarMonthModule() {
+    }
+    return CalendarMonthModule;
+}());
 CalendarMonthModule.decorators = [
     { type: NgModule, args: [{
                 imports: [CommonModule, DragAndDropModule, CalendarCommonModule],
@@ -1561,18 +1435,17 @@ CalendarMonthModule.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarMonthModule.ctorParameters = () => [];
-
+CalendarMonthModule.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarDragHelper {
+var CalendarDragHelper = /** @class */ (function () {
     /**
      * @param {?} dragContainerElement
      * @param {?} draggableElement
      */
-    constructor(dragContainerElement, draggableElement) {
+    function CalendarDragHelper(dragContainerElement, draggableElement) {
         this.dragContainerElement = dragContainerElement;
         this.startPosition = draggableElement.getBoundingClientRect();
     }
@@ -1580,27 +1453,28 @@ class CalendarDragHelper {
      * @param {?} __0
      * @return {?}
      */
-    validateDrag({ x, y }) {
-        const /** @type {?} */ newRect = Object.assign({}, this.startPosition, {
+    CalendarDragHelper.prototype.validateDrag = function (_a) {
+        var x = _a.x, y = _a.y;
+        var /** @type {?} */ newRect = Object.assign({}, this.startPosition, {
             left: this.startPosition.left + x,
             right: this.startPosition.right + x,
             top: this.startPosition.top + y,
             bottom: this.startPosition.bottom + y
         });
         return isInside(this.dragContainerElement.getBoundingClientRect(), newRect);
-    }
-}
-
+    };
+    return CalendarDragHelper;
+}());
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarResizeHelper {
+var CalendarResizeHelper = /** @class */ (function () {
     /**
      * @param {?} resizeContainerElement
      * @param {?=} minWidth
      */
-    constructor(resizeContainerElement, minWidth) {
+    function CalendarResizeHelper(resizeContainerElement, minWidth) {
         this.resizeContainerElement = resizeContainerElement;
         this.minWidth = minWidth;
     }
@@ -1608,14 +1482,15 @@ class CalendarResizeHelper {
      * @param {?} __0
      * @return {?}
      */
-    validateResize({ rectangle }) {
+    CalendarResizeHelper.prototype.validateResize = function (_a) {
+        var rectangle = _a.rectangle;
         if (this.minWidth && rectangle.width < this.minWidth) {
             return false;
         }
         return isInside(this.resizeContainerElement.getBoundingClientRect(), rectangle);
-    }
-}
-
+    };
+    return CalendarResizeHelper;
+}());
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -1623,11 +1498,9 @@ class CalendarResizeHelper {
 /**
  * @record
  */
-
 /**
  * @record
  */
-
 /**
  * Shows all events on a given week. Example usage:
  *
@@ -1638,14 +1511,14 @@ class CalendarResizeHelper {
  * </mwl-calendar-week-view>
  * ```
  */
-class CalendarWeekViewComponent {
+var CalendarWeekViewComponent = /** @class */ (function () {
     /**
      * @hidden
      * @param {?} cdr
      * @param {?} utils
      * @param {?} locale
      */
-    constructor(cdr, utils, locale) {
+    function CalendarWeekViewComponent(cdr, utils, locale) {
         this.cdr = cdr;
         this.utils = utils;
         /**
@@ -1697,20 +1570,21 @@ class CalendarWeekViewComponent {
      * @hidden
      * @return {?}
      */
-    ngOnInit() {
+    CalendarWeekViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (this.refresh) {
-            this.refreshSubscription = this.refresh.subscribe(() => {
-                this.refreshAll();
-                this.cdr.markForCheck();
+            this.refreshSubscription = this.refresh.subscribe(function () {
+                _this.refreshAll();
+                _this.cdr.markForCheck();
             });
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} changes
      * @return {?}
      */
-    ngOnChanges(changes) {
+    CalendarWeekViewComponent.prototype.ngOnChanges = function (changes) {
         if (changes.viewDate || changes.excludeDays || changes.weekendDays) {
             this.refreshHeader();
         }
@@ -1720,16 +1594,16 @@ class CalendarWeekViewComponent {
         if (changes.events || changes.viewDate || changes.excludeDays) {
             this.refreshBody();
         }
-    }
+    };
     /**
      * @hidden
      * @return {?}
      */
-    ngOnDestroy() {
+    CalendarWeekViewComponent.prototype.ngOnDestroy = function () {
         if (this.refreshSubscription) {
             this.refreshSubscription.unsubscribe();
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} weekViewContainer
@@ -1737,17 +1611,20 @@ class CalendarWeekViewComponent {
      * @param {?} resizeEvent
      * @return {?}
      */
-    resizeStarted(weekViewContainer, weekEvent, resizeEvent) {
+    CalendarWeekViewComponent.prototype.resizeStarted = function (weekViewContainer, weekEvent, resizeEvent) {
         this.currentResizes.set(weekEvent, {
             originalOffset: weekEvent.offset,
             originalSpan: weekEvent.span,
             edge: typeof resizeEvent.edges.left !== 'undefined' ? 'left' : 'right'
         });
         this.dayColumnWidth = this.getDayColumnWidth(weekViewContainer);
-        const /** @type {?} */ resizeHelper = new CalendarResizeHelper(weekViewContainer, this.dayColumnWidth);
-        this.validateResize = ({ rectangle }) => resizeHelper.validateResize({ rectangle });
+        var /** @type {?} */ resizeHelper = new CalendarResizeHelper(weekViewContainer, this.dayColumnWidth);
+        this.validateResize = function (_a) {
+            var rectangle = _a.rectangle;
+            return resizeHelper.validateResize({ rectangle: rectangle });
+        };
         this.cdr.markForCheck();
-    }
+    };
     /**
      * @hidden
      * @param {?} weekEvent
@@ -1755,26 +1632,26 @@ class CalendarWeekViewComponent {
      * @param {?} dayWidth
      * @return {?}
      */
-    resizing(weekEvent, resizeEvent, dayWidth) {
-        const /** @type {?} */ currentResize = this.currentResizes.get(weekEvent);
+    CalendarWeekViewComponent.prototype.resizing = function (weekEvent, resizeEvent, dayWidth) {
+        var /** @type {?} */ currentResize = this.currentResizes.get(weekEvent);
         if (resizeEvent.edges.left) {
-            const /** @type {?} */ diff = Math.round(+resizeEvent.edges.left / dayWidth);
+            var /** @type {?} */ diff = Math.round(+resizeEvent.edges.left / dayWidth);
             weekEvent.offset = currentResize.originalOffset + diff;
             weekEvent.span = currentResize.originalSpan - diff;
         }
         else if (resizeEvent.edges.right) {
-            const /** @type {?} */ diff = Math.round(+resizeEvent.edges.right / dayWidth);
+            var /** @type {?} */ diff = Math.round(+resizeEvent.edges.right / dayWidth);
             weekEvent.span = currentResize.originalSpan + diff;
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} weekEvent
      * @return {?}
      */
-    resizeEnded(weekEvent) {
-        const /** @type {?} */ currentResize = this.currentResizes.get(weekEvent);
-        let /** @type {?} */ daysDiff;
+    CalendarWeekViewComponent.prototype.resizeEnded = function (weekEvent) {
+        var /** @type {?} */ currentResize = this.currentResizes.get(weekEvent);
+        var /** @type {?} */ daysDiff;
         if (currentResize.edge === 'left') {
             daysDiff = weekEvent.offset - currentResize.originalOffset;
         }
@@ -1783,17 +1660,17 @@ class CalendarWeekViewComponent {
         }
         weekEvent.offset = currentResize.originalOffset;
         weekEvent.span = currentResize.originalSpan;
-        let /** @type {?} */ newStart = weekEvent.event.start;
-        let /** @type {?} */ newEnd = weekEvent.event.end;
+        var /** @type {?} */ newStart = weekEvent.event.start;
+        var /** @type {?} */ newEnd = weekEvent.event.end;
         if (currentResize.edge === 'left') {
             newStart = addDays(newStart, daysDiff);
         }
         else if (newEnd) {
             newEnd = addDays(newEnd, daysDiff);
         }
-        this.eventTimesChanged.emit({ newStart, newEnd, event: weekEvent.event });
+        this.eventTimesChanged.emit({ newStart: newStart, newEnd: newEnd, event: weekEvent.event });
         this.currentResizes.delete(weekEvent);
-    }
+    };
     /**
      * @hidden
      * @param {?} weekEvent
@@ -1801,39 +1678,43 @@ class CalendarWeekViewComponent {
      * @param {?} dayWidth
      * @return {?}
      */
-    eventDragged(weekEvent, draggedByPx, dayWidth) {
-        const /** @type {?} */ daysDragged = draggedByPx / dayWidth;
-        const /** @type {?} */ newStart = addDays(weekEvent.event.start, daysDragged);
-        let /** @type {?} */ newEnd;
+    CalendarWeekViewComponent.prototype.eventDragged = function (weekEvent, draggedByPx, dayWidth) {
+        var /** @type {?} */ daysDragged = draggedByPx / dayWidth;
+        var /** @type {?} */ newStart = addDays(weekEvent.event.start, daysDragged);
+        var /** @type {?} */ newEnd;
         if (weekEvent.event.end) {
             newEnd = addDays(weekEvent.event.end, daysDragged);
         }
-        this.eventTimesChanged.emit({ newStart, newEnd, event: weekEvent.event });
-    }
+        this.eventTimesChanged.emit({ newStart: newStart, newEnd: newEnd, event: weekEvent.event });
+    };
     /**
      * @hidden
      * @param {?} eventRowContainer
      * @return {?}
      */
-    getDayColumnWidth(eventRowContainer) {
+    CalendarWeekViewComponent.prototype.getDayColumnWidth = function (eventRowContainer) {
         return Math.floor(eventRowContainer.offsetWidth / this.days.length);
-    }
+    };
     /**
      * @hidden
      * @param {?} weekViewContainer
      * @param {?} event
      * @return {?}
      */
-    dragStart(weekViewContainer, event) {
+    CalendarWeekViewComponent.prototype.dragStart = function (weekViewContainer, event) {
+        var _this = this;
         this.dayColumnWidth = this.getDayColumnWidth(weekViewContainer);
-        const /** @type {?} */ dragHelper = new CalendarDragHelper(weekViewContainer, event);
-        this.validateDrag = ({ x, y }) => this.currentResizes.size === 0 && dragHelper.validateDrag({ x, y });
+        var /** @type {?} */ dragHelper = new CalendarDragHelper(weekViewContainer, event);
+        this.validateDrag = function (_a) {
+            var x = _a.x, y = _a.y;
+            return _this.currentResizes.size === 0 && dragHelper.validateDrag({ x: x, y: y });
+        };
         this.cdr.markForCheck();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshHeader() {
+    CalendarWeekViewComponent.prototype.refreshHeader = function () {
         this.days = this.utils.getWeekViewHeader({
             viewDate: this.viewDate,
             weekStartsOn: this.weekStartsOn,
@@ -1841,11 +1722,11 @@ class CalendarWeekViewComponent {
             weekendDays: this.weekendDays
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshBody() {
+    CalendarWeekViewComponent.prototype.refreshBody = function () {
         this.view = this.utils.getWeekView({
             events: this.events,
             viewDate: this.viewDate,
@@ -1855,83 +1736,39 @@ class CalendarWeekViewComponent {
             absolutePositionedEvents: true
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshAll() {
+    CalendarWeekViewComponent.prototype.refreshAll = function () {
         this.refreshHeader();
         this.refreshBody();
-    }
+    };
     /**
      * @return {?}
      */
-    emitBeforeViewRender() {
+    CalendarWeekViewComponent.prototype.emitBeforeViewRender = function () {
         if (this.days && this.view) {
             this.beforeViewRender.emit({
                 header: this.days,
                 period: this.view.period
             });
         }
-    }
-}
+    };
+    return CalendarWeekViewComponent;
+}());
 CalendarWeekViewComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-week-view',
-                template: `
-    <div class="cal-week-view" #weekViewContainer>
-      <mwl-calendar-week-view-header
-        [days]="days"
-        [locale]="locale"
-        [customTemplate]="headerTemplate"
-        (dayHeaderClicked)="dayHeaderClicked.emit($event)"
-        (eventDropped)="eventTimesChanged.emit($event)">
-      </mwl-calendar-week-view-header>
-      <div *ngFor="let eventRow of view.eventRows" #eventRowContainer class="cal-events-row">
-        <div
-          *ngFor="let weekEvent of eventRow.row"
-          #event
-          class="cal-event-container"
-          [class.cal-draggable]="weekEvent.event.draggable"
-          [class.cal-starts-within-week]="!weekEvent.startsBeforeWeek"
-          [class.cal-ends-within-week]="!weekEvent.endsAfterWeek"
-          [ngClass]="weekEvent.event?.cssClass"
-          [style.width]="((100 / days.length) * weekEvent.span) + '%'"
-          [style.marginLeft]="((100 / days.length) * weekEvent.offset) + '%'"
-          mwlResizable
-          [resizeEdges]="{left: weekEvent.event?.resizable?.beforeStart, right: weekEvent.event?.resizable?.afterEnd}"
-          [resizeSnapGrid]="{left: dayColumnWidth, right: dayColumnWidth}"
-          [validateResize]="validateResize"
-          (resizeStart)="resizeStarted(weekViewContainer, weekEvent, $event)"
-          (resizing)="resizing(weekEvent, $event, dayColumnWidth)"
-          (resizeEnd)="resizeEnded(weekEvent)"
-          mwlDraggable
-          [dragAxis]="{x: weekEvent.event.draggable && currentResizes.size === 0, y: false}"
-          [dragSnapGrid]="{x: dayColumnWidth}"
-          [validateDrag]="validateDrag"
-          (dragPointerDown)="dragStart(weekViewContainer, event)"
-          (dragEnd)="eventDragged(weekEvent, $event.x, dayColumnWidth)">
-          <mwl-calendar-week-view-event
-            [weekEvent]="weekEvent"
-            [tooltipPlacement]="tooltipPlacement"
-            [tooltipTemplate]="tooltipTemplate"
-            [tooltipAppendToBody]="tooltipAppendToBody"
-            [customTemplate]="eventTemplate"
-            [eventTitleTemplate]="eventTitleTemplate"
-            (eventClicked)="eventClicked.emit({event: weekEvent.event})">
-          </mwl-calendar-week-view-event>
-        </div>
-      </div>
-    </div>
-  `
+                template: "\n    <div class=\"cal-week-view\" #weekViewContainer>\n      <mwl-calendar-week-view-header\n        [days]=\"days\"\n        [locale]=\"locale\"\n        [customTemplate]=\"headerTemplate\"\n        (dayHeaderClicked)=\"dayHeaderClicked.emit($event)\"\n        (eventDropped)=\"eventTimesChanged.emit($event)\">\n      </mwl-calendar-week-view-header>\n      <div *ngFor=\"let eventRow of view.eventRows\" #eventRowContainer class=\"cal-events-row\">\n        <div\n          *ngFor=\"let weekEvent of eventRow.row\"\n          #event\n          class=\"cal-event-container\"\n          [class.cal-draggable]=\"weekEvent.event.draggable\"\n          [class.cal-starts-within-week]=\"!weekEvent.startsBeforeWeek\"\n          [class.cal-ends-within-week]=\"!weekEvent.endsAfterWeek\"\n          [ngClass]=\"weekEvent.event?.cssClass\"\n          [style.width]=\"((100 / days.length) * weekEvent.span) + '%'\"\n          [style.marginLeft]=\"((100 / days.length) * weekEvent.offset) + '%'\"\n          mwlResizable\n          [resizeEdges]=\"{left: weekEvent.event?.resizable?.beforeStart, right: weekEvent.event?.resizable?.afterEnd}\"\n          [resizeSnapGrid]=\"{left: dayColumnWidth, right: dayColumnWidth}\"\n          [validateResize]=\"validateResize\"\n          (resizeStart)=\"resizeStarted(weekViewContainer, weekEvent, $event)\"\n          (resizing)=\"resizing(weekEvent, $event, dayColumnWidth)\"\n          (resizeEnd)=\"resizeEnded(weekEvent)\"\n          mwlDraggable\n          [dragAxis]=\"{x: weekEvent.event.draggable && currentResizes.size === 0, y: false}\"\n          [dragSnapGrid]=\"{x: dayColumnWidth}\"\n          [validateDrag]=\"validateDrag\"\n          (dragPointerDown)=\"dragStart(weekViewContainer, event)\"\n          (dragEnd)=\"eventDragged(weekEvent, $event.x, dayColumnWidth)\">\n          <mwl-calendar-week-view-event\n            [weekEvent]=\"weekEvent\"\n            [tooltipPlacement]=\"tooltipPlacement\"\n            [tooltipTemplate]=\"tooltipTemplate\"\n            [tooltipAppendToBody]=\"tooltipAppendToBody\"\n            [customTemplate]=\"eventTemplate\"\n            [eventTitleTemplate]=\"eventTitleTemplate\"\n            (eventClicked)=\"eventClicked.emit({event: weekEvent.event})\">\n          </mwl-calendar-week-view-event>\n        </div>\n      </div>\n    </div>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarWeekViewComponent.ctorParameters = () => [
+CalendarWeekViewComponent.ctorParameters = function () { return [
     { type: ChangeDetectorRef, },
     { type: CalendarUtils, },
     { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
-];
+]; };
 CalendarWeekViewComponent.propDecorators = {
     "viewDate": [{ type: Input },],
     "events": [{ type: Input },],
@@ -1952,56 +1789,25 @@ CalendarWeekViewComponent.propDecorators = {
     "eventTimesChanged": [{ type: Output },],
     "beforeViewRender": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarWeekViewHeaderComponent {
-    constructor() {
+var CalendarWeekViewHeaderComponent = /** @class */ (function () {
+    function CalendarWeekViewHeaderComponent() {
         this.dayHeaderClicked = new EventEmitter();
         this.eventDropped = new EventEmitter();
     }
-}
+    return CalendarWeekViewHeaderComponent;
+}());
 CalendarWeekViewHeaderComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-week-view-header',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-days="days"
-      let-locale="locale"
-      let-dayHeaderClicked="dayHeaderClicked"
-      let-eventDropped="eventDropped">
-      <div class="cal-day-headers">
-        <div
-          class="cal-header"
-          *ngFor="let day of days"
-          [class.cal-past]="day.isPast"
-          [class.cal-today]="day.isToday"
-          [class.cal-future]="day.isFuture"
-          [class.cal-weekend]="day.isWeekend"
-          [class.cal-drag-over]="day.dragOver"
-          [ngClass]="day.cssClass"
-          (mwlClick)="dayHeaderClicked.emit({day: day})"
-          mwlDroppable
-          (dragEnter)="day.dragOver = true"
-          (dragLeave)="day.dragOver = false"
-          (drop)="day.dragOver = false; eventDropped.emit({event: $event.dropData.event, newStart: day.date})">
-          <b>{{ day.date | calendarDate:'weekViewColumnHeader':locale }}</b><br>
-          <span>{{ day.date | calendarDate:'weekViewColumnSubHeader':locale }}</span>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{days: days, locale: locale, dayHeaderClicked: dayHeaderClicked, eventDropped: eventDropped}">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-days=\"days\"\n      let-locale=\"locale\"\n      let-dayHeaderClicked=\"dayHeaderClicked\"\n      let-eventDropped=\"eventDropped\">\n      <div class=\"cal-day-headers\">\n        <div\n          class=\"cal-header\"\n          *ngFor=\"let day of days\"\n          [class.cal-past]=\"day.isPast\"\n          [class.cal-today]=\"day.isToday\"\n          [class.cal-future]=\"day.isFuture\"\n          [class.cal-weekend]=\"day.isWeekend\"\n          [class.cal-drag-over]=\"day.dragOver\"\n          [ngClass]=\"day.cssClass\"\n          (mwlClick)=\"dayHeaderClicked.emit({day: day})\"\n          mwlDroppable\n          (dragEnter)=\"day.dragOver = true\"\n          (dragLeave)=\"day.dragOver = false\"\n          (drop)=\"day.dragOver = false; eventDropped.emit({event: $event.dropData.event, newStart: day.date})\">\n          <b>{{ day.date | calendarDate:'weekViewColumnHeader':locale }}</b><br>\n          <span>{{ day.date | calendarDate:'weekViewColumnSubHeader':locale }}</span>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{days: days, locale: locale, dayHeaderClicked: dayHeaderClicked, eventDropped: eventDropped}\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarWeekViewHeaderComponent.ctorParameters = () => [];
+CalendarWeekViewHeaderComponent.ctorParameters = function () { return []; };
 CalendarWeekViewHeaderComponent.propDecorators = {
     "days": [{ type: Input },],
     "locale": [{ type: Input },],
@@ -2009,59 +1815,24 @@ CalendarWeekViewHeaderComponent.propDecorators = {
     "dayHeaderClicked": [{ type: Output },],
     "eventDropped": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarWeekViewEventComponent {
-    constructor() {
+var CalendarWeekViewEventComponent = /** @class */ (function () {
+    function CalendarWeekViewEventComponent() {
         this.eventClicked = new EventEmitter();
     }
-}
+    return CalendarWeekViewEventComponent;
+}());
 CalendarWeekViewEventComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-week-view-event',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-weekEvent="weekEvent"
-      let-tooltipPlacement="tooltipPlacement"
-      let-eventClicked="eventClicked"
-      let-tooltipTemplate="tooltipTemplate"
-      let-tooltipAppendToBody="tooltipAppendToBody">
-      <div
-        class="cal-event"
-        [style.backgroundColor]="weekEvent.event.color.secondary"
-        [mwlCalendarTooltip]="weekEvent.event.title | calendarEventTitle:'weekTooltip':weekEvent.event"
-        [tooltipPlacement]="tooltipPlacement"
-        [tooltipEvent]="weekEvent.event"
-        [tooltipTemplate]="tooltipTemplate"
-        [tooltipAppendToBody]="tooltipAppendToBody">
-        <mwl-calendar-event-actions [event]="weekEvent.event"></mwl-calendar-event-actions>
-        <mwl-calendar-event-title
-          [event]="weekEvent.event"
-          [customTemplate]="eventTitleTemplate"
-          view="week"
-          (mwlClick)="eventClicked.emit()">
-        </mwl-calendar-event-title>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        weekEvent: weekEvent,
-        tooltipPlacement: tooltipPlacement,
-        eventClicked: eventClicked,
-        tooltipTemplate: tooltipTemplate,
-        tooltipAppendToBody: tooltipAppendToBody
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-weekEvent=\"weekEvent\"\n      let-tooltipPlacement=\"tooltipPlacement\"\n      let-eventClicked=\"eventClicked\"\n      let-tooltipTemplate=\"tooltipTemplate\"\n      let-tooltipAppendToBody=\"tooltipAppendToBody\">\n      <div\n        class=\"cal-event\"\n        [style.backgroundColor]=\"weekEvent.event.color.secondary\"\n        [mwlCalendarTooltip]=\"weekEvent.event.title | calendarEventTitle:'weekTooltip':weekEvent.event\"\n        [tooltipPlacement]=\"tooltipPlacement\"\n        [tooltipEvent]=\"weekEvent.event\"\n        [tooltipTemplate]=\"tooltipTemplate\"\n        [tooltipAppendToBody]=\"tooltipAppendToBody\">\n        <mwl-calendar-event-actions [event]=\"weekEvent.event\"></mwl-calendar-event-actions>\n        <mwl-calendar-event-title\n          [event]=\"weekEvent.event\"\n          [customTemplate]=\"eventTitleTemplate\"\n          view=\"week\"\n          (mwlClick)=\"eventClicked.emit()\">\n        </mwl-calendar-event-title>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        weekEvent: weekEvent,\n        tooltipPlacement: tooltipPlacement,\n        eventClicked: eventClicked,\n        tooltipTemplate: tooltipTemplate,\n        tooltipAppendToBody: tooltipAppendToBody\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarWeekViewEventComponent.ctorParameters = () => [];
+CalendarWeekViewEventComponent.ctorParameters = function () { return []; };
 CalendarWeekViewEventComponent.propDecorators = {
     "weekEvent": [{ type: Input },],
     "tooltipPlacement": [{ type: Input },],
@@ -2071,13 +1842,15 @@ CalendarWeekViewEventComponent.propDecorators = {
     "tooltipTemplate": [{ type: Input },],
     "eventClicked": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarWeekModule {
-}
+var CalendarWeekModule = /** @class */ (function () {
+    function CalendarWeekModule() {
+    }
+    return CalendarWeekModule;
+}());
 CalendarWeekModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
@@ -2101,8 +1874,7 @@ CalendarWeekModule.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarWeekModule.ctorParameters = () => [];
-
+CalendarWeekModule.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -2110,16 +1882,14 @@ CalendarWeekModule.ctorParameters = () => [];
 /**
  * @record
  */
-
 /**
  * @hidden
  */
-const MINUTES_IN_HOUR = 60;
+var MINUTES_IN_HOUR = 60;
 /**
  * @hidden
  * @record
  */
-
 /**
  * Shows all events on a given day. Example usage:
  *
@@ -2130,14 +1900,14 @@ const MINUTES_IN_HOUR = 60;
  * </mwl-calendar-day-view>
  * ```
  */
-class CalendarDayViewComponent {
+var CalendarDayViewComponent = /** @class */ (function () {
     /**
      * @hidden
      * @param {?} cdr
      * @param {?} utils
      * @param {?} locale
      */
-    constructor(cdr, utils, locale) {
+    function CalendarDayViewComponent(cdr, utils, locale) {
         this.cdr = cdr;
         this.utils = utils;
         /**
@@ -2220,29 +1990,30 @@ class CalendarDayViewComponent {
      * @hidden
      * @return {?}
      */
-    ngOnInit() {
+    CalendarDayViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (this.refresh) {
-            this.refreshSubscription = this.refresh.subscribe(() => {
-                this.refreshAll();
-                this.cdr.markForCheck();
+            this.refreshSubscription = this.refresh.subscribe(function () {
+                _this.refreshAll();
+                _this.cdr.markForCheck();
             });
         }
-    }
+    };
     /**
      * @hidden
      * @return {?}
      */
-    ngOnDestroy() {
+    CalendarDayViewComponent.prototype.ngOnDestroy = function () {
         if (this.refreshSubscription) {
             this.refreshSubscription.unsubscribe();
         }
-    }
+    };
     /**
      * @hidden
      * @param {?} changes
      * @return {?}
      */
-    ngOnChanges(changes) {
+    CalendarDayViewComponent.prototype.ngOnChanges = function (changes) {
         if (changes.viewDate ||
             changes.dayStartHour ||
             changes.dayStartMinute ||
@@ -2262,43 +2033,46 @@ class CalendarDayViewComponent {
             changes.eventWidth) {
             this.refreshView();
         }
-    }
+    };
     /**
      * @param {?} dropEvent
      * @param {?} segment
      * @return {?}
      */
-    eventDropped(dropEvent, segment) {
+    CalendarDayViewComponent.prototype.eventDropped = function (dropEvent, segment) {
         if (dropEvent.dropData && dropEvent.dropData.event) {
             this.eventTimesChanged.emit({
                 event: dropEvent.dropData.event,
                 newStart: segment.date
             });
         }
-    }
+    };
     /**
      * @param {?} event
      * @param {?} resizeEvent
      * @param {?} dayViewContainer
      * @return {?}
      */
-    resizeStarted(event, resizeEvent, dayViewContainer) {
+    CalendarDayViewComponent.prototype.resizeStarted = function (event, resizeEvent, dayViewContainer) {
         this.currentResizes.set(event, {
             originalTop: event.top,
             originalHeight: event.height,
             edge: typeof resizeEvent.edges.top !== 'undefined' ? 'top' : 'bottom'
         });
-        const /** @type {?} */ resizeHelper = new CalendarResizeHelper(dayViewContainer);
-        this.validateResize = ({ rectangle }) => resizeHelper.validateResize({ rectangle });
+        var /** @type {?} */ resizeHelper = new CalendarResizeHelper(dayViewContainer);
+        this.validateResize = function (_a) {
+            var rectangle = _a.rectangle;
+            return resizeHelper.validateResize({ rectangle: rectangle });
+        };
         this.cdr.markForCheck();
-    }
+    };
     /**
      * @param {?} event
      * @param {?} resizeEvent
      * @return {?}
      */
-    resizing(event, resizeEvent) {
-        const /** @type {?} */ currentResize = this.currentResizes.get(event);
+    CalendarDayViewComponent.prototype.resizing = function (event, resizeEvent) {
+        var /** @type {?} */ currentResize = this.currentResizes.get(event);
         if (resizeEvent.edges.top) {
             event.top = currentResize.originalTop + +resizeEvent.edges.top;
             event.height = currentResize.originalHeight - +resizeEvent.edges.top;
@@ -2306,14 +2080,14 @@ class CalendarDayViewComponent {
         else if (resizeEvent.edges.bottom) {
             event.height = currentResize.originalHeight + +resizeEvent.edges.bottom;
         }
-    }
+    };
     /**
      * @param {?} dayEvent
      * @return {?}
      */
-    resizeEnded(dayEvent) {
-        const /** @type {?} */ currentResize = this.currentResizes.get(dayEvent);
-        let /** @type {?} */ pixelsMoved;
+    CalendarDayViewComponent.prototype.resizeEnded = function (dayEvent) {
+        var /** @type {?} */ currentResize = this.currentResizes.get(dayEvent);
+        var /** @type {?} */ pixelsMoved;
         if (currentResize.edge === 'top') {
             pixelsMoved = dayEvent.top - currentResize.originalTop;
         }
@@ -2322,48 +2096,52 @@ class CalendarDayViewComponent {
         }
         dayEvent.top = currentResize.originalTop;
         dayEvent.height = currentResize.originalHeight;
-        const /** @type {?} */ pixelAmountInMinutes = MINUTES_IN_HOUR / (this.hourSegments * this.hourSegmentHeight);
-        const /** @type {?} */ minutesMoved = pixelsMoved * pixelAmountInMinutes;
-        let /** @type {?} */ newStart = dayEvent.event.start;
-        let /** @type {?} */ newEnd = dayEvent.event.end;
+        var /** @type {?} */ pixelAmountInMinutes = MINUTES_IN_HOUR / (this.hourSegments * this.hourSegmentHeight);
+        var /** @type {?} */ minutesMoved = pixelsMoved * pixelAmountInMinutes;
+        var /** @type {?} */ newStart = dayEvent.event.start;
+        var /** @type {?} */ newEnd = dayEvent.event.end;
         if (currentResize.edge === 'top') {
             newStart = addMinutes(newStart, minutesMoved);
         }
         else if (newEnd) {
             newEnd = addMinutes(newEnd, minutesMoved);
         }
-        this.eventTimesChanged.emit({ newStart, newEnd, event: dayEvent.event });
+        this.eventTimesChanged.emit({ newStart: newStart, newEnd: newEnd, event: dayEvent.event });
         this.currentResizes.delete(dayEvent);
-    }
+    };
     /**
      * @param {?} event
      * @param {?} dayViewContainer
      * @return {?}
      */
-    dragStart(event, dayViewContainer) {
-        const /** @type {?} */ dragHelper = new CalendarDragHelper(dayViewContainer, event);
-        this.validateDrag = ({ x, y }) => this.currentResizes.size === 0 && dragHelper.validateDrag({ x, y });
+    CalendarDayViewComponent.prototype.dragStart = function (event, dayViewContainer) {
+        var _this = this;
+        var /** @type {?} */ dragHelper = new CalendarDragHelper(dayViewContainer, event);
+        this.validateDrag = function (_a) {
+            var x = _a.x, y = _a.y;
+            return _this.currentResizes.size === 0 && dragHelper.validateDrag({ x: x, y: y });
+        };
         this.cdr.markForCheck();
-    }
+    };
     /**
      * @param {?} dayEvent
      * @param {?} draggedInPixels
      * @return {?}
      */
-    eventDragged(dayEvent, draggedInPixels) {
-        const /** @type {?} */ pixelAmountInMinutes = MINUTES_IN_HOUR / (this.hourSegments * this.hourSegmentHeight);
-        const /** @type {?} */ minutesMoved = draggedInPixels * pixelAmountInMinutes;
-        const /** @type {?} */ newStart = addMinutes(dayEvent.event.start, minutesMoved);
-        let /** @type {?} */ newEnd;
+    CalendarDayViewComponent.prototype.eventDragged = function (dayEvent, draggedInPixels) {
+        var /** @type {?} */ pixelAmountInMinutes = MINUTES_IN_HOUR / (this.hourSegments * this.hourSegmentHeight);
+        var /** @type {?} */ minutesMoved = draggedInPixels * pixelAmountInMinutes;
+        var /** @type {?} */ newStart = addMinutes(dayEvent.event.start, minutesMoved);
+        var /** @type {?} */ newEnd;
         if (dayEvent.event.end) {
             newEnd = addMinutes(dayEvent.event.end, minutesMoved);
         }
-        this.eventTimesChanged.emit({ newStart, newEnd, event: dayEvent.event });
-    }
+        this.eventTimesChanged.emit({ newStart: newStart, newEnd: newEnd, event: dayEvent.event });
+    };
     /**
      * @return {?}
      */
-    refreshHourGrid() {
+    CalendarDayViewComponent.prototype.refreshHourGrid = function () {
         this.hours = this.utils.getDayViewHourGrid({
             viewDate: this.viewDate,
             hourSegments: this.hourSegments,
@@ -2377,11 +2155,11 @@ class CalendarDayViewComponent {
             }
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshView() {
+    CalendarDayViewComponent.prototype.refreshView = function () {
         this.view = this.utils.getDayView({
             events: this.events,
             viewDate: this.viewDate,
@@ -2398,18 +2176,18 @@ class CalendarDayViewComponent {
             segmentHeight: this.hourSegmentHeight
         });
         this.emitBeforeViewRender();
-    }
+    };
     /**
      * @return {?}
      */
-    refreshAll() {
+    CalendarDayViewComponent.prototype.refreshAll = function () {
         this.refreshHourGrid();
         this.refreshView();
-    }
+    };
     /**
      * @return {?}
      */
-    emitBeforeViewRender() {
+    CalendarDayViewComponent.prototype.emitBeforeViewRender = function () {
         if (this.hours && this.view) {
             this.beforeViewRender.emit({
                 body: {
@@ -2418,85 +2196,21 @@ class CalendarDayViewComponent {
                 period: this.view.period
             });
         }
-    }
-}
+    };
+    return CalendarDayViewComponent;
+}());
 CalendarDayViewComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-day-view',
-                template: `
-    <div class="cal-day-view" #dayViewContainer>
-      <mwl-calendar-all-day-event
-        *ngFor="let event of view.allDayEvents"
-        [event]="event"
-        [customTemplate]="allDayEventTemplate"
-        [eventTitleTemplate]="eventTitleTemplate"
-        (eventClicked)="eventClicked.emit({event: event})">
-      </mwl-calendar-all-day-event>
-      <div class="cal-hour-rows">
-        <div class="cal-events">
-          <div
-            #event
-            *ngFor="let dayEvent of view?.events"
-            class="cal-event-container"
-            [class.cal-draggable]="dayEvent.event.draggable"
-            [class.cal-starts-within-day]="!dayEvent.startsBeforeDay"
-            [class.cal-ends-within-day]="!dayEvent.endsAfterDay"
-            [ngClass]="dayEvent.event.cssClass"
-            mwlResizable
-            [resizeEdges]="{top: dayEvent.event?.resizable?.beforeStart, bottom: dayEvent.event?.resizable?.afterEnd}"
-            [resizeSnapGrid]="{top: eventSnapSize, bottom: eventSnapSize}"
-            [validateResize]="validateResize"
-            (resizeStart)="resizeStarted(dayEvent, $event, dayViewContainer)"
-            (resizing)="resizing(dayEvent, $event)"
-            (resizeEnd)="resizeEnded(dayEvent)"
-            mwlDraggable
-            [dragAxis]="{x: false, y: dayEvent.event.draggable && currentResizes.size === 0}"
-            [dragSnapGrid]="{y: eventSnapSize}"
-            [validateDrag]="validateDrag"
-            (dragPointerDown)="dragStart(event, dayViewContainer)"
-            (dragEnd)="eventDragged(dayEvent, $event.y)"
-            [style.marginTop.px]="dayEvent.top"
-            [style.height.px]="dayEvent.height"
-            [style.marginLeft.px]="dayEvent.left + 70"
-            [style.width.px]="dayEvent.width - 1">
-            <mwl-calendar-day-view-event
-              [dayEvent]="dayEvent"
-              [tooltipPlacement]="tooltipPlacement"
-              [tooltipTemplate]="tooltipTemplate"
-              [tooltipAppendToBody]="tooltipAppendToBody"
-              [customTemplate]="eventTemplate"
-              [eventTitleTemplate]="eventTitleTemplate"
-              (eventClicked)="eventClicked.emit({event: dayEvent.event})">
-            </mwl-calendar-day-view-event>
-          </div>
-        </div>
-        <div class="cal-hour" *ngFor="let hour of hours" [style.minWidth.px]="view?.width + 70">
-          <mwl-calendar-day-view-hour-segment
-            *ngFor="let segment of hour.segments"
-            [style.height.px]="hourSegmentHeight"
-            [segment]="segment"
-            [segmentHeight]="hourSegmentHeight"
-            [locale]="locale"
-            [customTemplate]="hourSegmentTemplate"
-            (mwlClick)="hourSegmentClicked.emit({date: segment.date})"
-            [class.cal-drag-over]="segment.dragOver"
-            mwlDroppable
-            (dragEnter)="segment.dragOver = true"
-            (dragLeave)="segment.dragOver = false"
-            (drop)="segment.dragOver = false; eventDropped($event, segment)">
-          </mwl-calendar-day-view-hour-segment>
-        </div>
-      </div>
-    </div>
-  `
+                template: "\n    <div class=\"cal-day-view\" #dayViewContainer>\n      <mwl-calendar-all-day-event\n        *ngFor=\"let event of view.allDayEvents\"\n        [event]=\"event\"\n        [customTemplate]=\"allDayEventTemplate\"\n        [eventTitleTemplate]=\"eventTitleTemplate\"\n        (eventClicked)=\"eventClicked.emit({event: event})\">\n      </mwl-calendar-all-day-event>\n      <div class=\"cal-hour-rows\">\n        <div class=\"cal-events\">\n          <div\n            #event\n            *ngFor=\"let dayEvent of view?.events\"\n            class=\"cal-event-container\"\n            [class.cal-draggable]=\"dayEvent.event.draggable\"\n            [class.cal-starts-within-day]=\"!dayEvent.startsBeforeDay\"\n            [class.cal-ends-within-day]=\"!dayEvent.endsAfterDay\"\n            [ngClass]=\"dayEvent.event.cssClass\"\n            mwlResizable\n            [resizeEdges]=\"{top: dayEvent.event?.resizable?.beforeStart, bottom: dayEvent.event?.resizable?.afterEnd}\"\n            [resizeSnapGrid]=\"{top: eventSnapSize, bottom: eventSnapSize}\"\n            [validateResize]=\"validateResize\"\n            (resizeStart)=\"resizeStarted(dayEvent, $event, dayViewContainer)\"\n            (resizing)=\"resizing(dayEvent, $event)\"\n            (resizeEnd)=\"resizeEnded(dayEvent)\"\n            mwlDraggable\n            [dragAxis]=\"{x: false, y: dayEvent.event.draggable && currentResizes.size === 0}\"\n            [dragSnapGrid]=\"{y: eventSnapSize}\"\n            [validateDrag]=\"validateDrag\"\n            (dragPointerDown)=\"dragStart(event, dayViewContainer)\"\n            (dragEnd)=\"eventDragged(dayEvent, $event.y)\"\n            [style.marginTop.px]=\"dayEvent.top\"\n            [style.height.px]=\"dayEvent.height\"\n            [style.marginLeft.px]=\"dayEvent.left + 70\"\n            [style.width.px]=\"dayEvent.width - 1\">\n            <mwl-calendar-day-view-event\n              [dayEvent]=\"dayEvent\"\n              [tooltipPlacement]=\"tooltipPlacement\"\n              [tooltipTemplate]=\"tooltipTemplate\"\n              [tooltipAppendToBody]=\"tooltipAppendToBody\"\n              [customTemplate]=\"eventTemplate\"\n              [eventTitleTemplate]=\"eventTitleTemplate\"\n              (eventClicked)=\"eventClicked.emit({event: dayEvent.event})\">\n            </mwl-calendar-day-view-event>\n          </div>\n        </div>\n        <div class=\"cal-hour\" *ngFor=\"let hour of hours\" [style.minWidth.px]=\"view?.width + 70\">\n          <mwl-calendar-day-view-hour-segment\n            *ngFor=\"let segment of hour.segments\"\n            [style.height.px]=\"hourSegmentHeight\"\n            [segment]=\"segment\"\n            [segmentHeight]=\"hourSegmentHeight\"\n            [locale]=\"locale\"\n            [customTemplate]=\"hourSegmentTemplate\"\n            (mwlClick)=\"hourSegmentClicked.emit({date: segment.date})\"\n            [class.cal-drag-over]=\"segment.dragOver\"\n            mwlDroppable\n            (dragEnter)=\"segment.dragOver = true\"\n            (dragLeave)=\"segment.dragOver = false\"\n            (drop)=\"segment.dragOver = false; eventDropped($event, segment)\">\n          </mwl-calendar-day-view-hour-segment>\n        </div>\n      </div>\n    </div>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarDayViewComponent.ctorParameters = () => [
+CalendarDayViewComponent.ctorParameters = function () { return [
     { type: ChangeDetectorRef, },
     { type: CalendarUtils, },
     { type: undefined, decorators: [{ type: Inject, args: [LOCALE_ID,] },] },
-];
+]; };
 CalendarDayViewComponent.propDecorators = {
     "viewDate": [{ type: Input },],
     "events": [{ type: Input },],
@@ -2522,153 +2236,71 @@ CalendarDayViewComponent.propDecorators = {
     "eventTimesChanged": [{ type: Output },],
     "beforeViewRender": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarAllDayEventComponent {
-    constructor() {
+var CalendarAllDayEventComponent = /** @class */ (function () {
+    function CalendarAllDayEventComponent() {
         this.eventClicked = new EventEmitter();
     }
-}
+    return CalendarAllDayEventComponent;
+}());
 CalendarAllDayEventComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-all-day-event',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-event="event"
-      let-eventClicked="eventClicked">
-      <div
-        class="cal-all-day-event"
-        [style.backgroundColor]="event.color.secondary"
-        [style.borderColor]="event.color.primary">
-        <mwl-calendar-event-actions [event]="event"></mwl-calendar-event-actions>
-        <mwl-calendar-event-title
-          [event]="event"
-          [customTemplate]="eventTitleTemplate"
-          view="day"
-          (mwlClick)="eventClicked.emit()">
-        </mwl-calendar-event-title>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        event: event,
-        eventClicked: eventClicked
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-event=\"event\"\n      let-eventClicked=\"eventClicked\">\n      <div\n        class=\"cal-all-day-event\"\n        [style.backgroundColor]=\"event.color.secondary\"\n        [style.borderColor]=\"event.color.primary\">\n        <mwl-calendar-event-actions [event]=\"event\"></mwl-calendar-event-actions>\n        <mwl-calendar-event-title\n          [event]=\"event\"\n          [customTemplate]=\"eventTitleTemplate\"\n          view=\"day\"\n          (mwlClick)=\"eventClicked.emit()\">\n        </mwl-calendar-event-title>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        event: event,\n        eventClicked: eventClicked\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarAllDayEventComponent.ctorParameters = () => [];
+CalendarAllDayEventComponent.ctorParameters = function () { return []; };
 CalendarAllDayEventComponent.propDecorators = {
     "event": [{ type: Input },],
     "customTemplate": [{ type: Input },],
     "eventTitleTemplate": [{ type: Input },],
     "eventClicked": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarDayViewHourSegmentComponent {
-}
+var CalendarDayViewHourSegmentComponent = /** @class */ (function () {
+    function CalendarDayViewHourSegmentComponent() {
+    }
+    return CalendarDayViewHourSegmentComponent;
+}());
 CalendarDayViewHourSegmentComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-day-view-hour-segment',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-segment="segment"
-      let-locale="locale">
-      <div
-        class="cal-hour-segment"
-        [style.height.px]="segmentHeight"
-        [class.cal-hour-start]="segment.isStart"
-        [class.cal-after-hour-start]="!segment.isStart"
-        [ngClass]="segment.cssClass">
-        <div class="cal-time">
-          {{ segment.date | calendarDate:'dayViewHour':locale }}
-        </div>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        segment: segment,
-        locale: locale
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-segment=\"segment\"\n      let-locale=\"locale\">\n      <div\n        class=\"cal-hour-segment\"\n        [style.height.px]=\"segmentHeight\"\n        [class.cal-hour-start]=\"segment.isStart\"\n        [class.cal-after-hour-start]=\"!segment.isStart\"\n        [ngClass]=\"segment.cssClass\">\n        <div class=\"cal-time\">\n          {{ segment.date | calendarDate:'dayViewHour':locale }}\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        segment: segment,\n        locale: locale\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarDayViewHourSegmentComponent.ctorParameters = () => [];
+CalendarDayViewHourSegmentComponent.ctorParameters = function () { return []; };
 CalendarDayViewHourSegmentComponent.propDecorators = {
     "segment": [{ type: Input },],
     "segmentHeight": [{ type: Input },],
     "locale": [{ type: Input },],
     "customTemplate": [{ type: Input },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarDayViewEventComponent {
-    constructor() {
+var CalendarDayViewEventComponent = /** @class */ (function () {
+    function CalendarDayViewEventComponent() {
         this.eventClicked = new EventEmitter();
     }
-}
+    return CalendarDayViewEventComponent;
+}());
 CalendarDayViewEventComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mwl-calendar-day-view-event',
-                template: `
-    <ng-template
-      #defaultTemplate
-      let-dayEvent="dayEvent"
-      let-tooltipPlacement="tooltipPlacement"
-      let-eventClicked="eventClicked"
-      let-tooltipTemplate="tooltipTemplate"
-      let-tooltipAppendToBody="tooltipAppendToBody">
-      <div
-        class="cal-event"
-        [style.backgroundColor]="dayEvent.event.color.secondary"
-        [style.borderColor]="dayEvent.event.color.primary"
-        [mwlCalendarTooltip]="dayEvent.event.title | calendarEventTitle:'dayTooltip':dayEvent.event"
-        [tooltipPlacement]="tooltipPlacement"
-        [tooltipEvent]="dayEvent.event"
-        [tooltipTemplate]="tooltipTemplate"
-        [tooltipAppendToBody]="tooltipAppendToBody">
-        <mwl-calendar-event-actions [event]="dayEvent.event"></mwl-calendar-event-actions>
-        <mwl-calendar-event-title
-          [event]="dayEvent.event"
-          [customTemplate]="eventTitleTemplate"
-          view="day"
-          (mwlClick)="eventClicked.emit()">
-        </mwl-calendar-event-title>
-      </div>
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="customTemplate || defaultTemplate"
-      [ngTemplateOutletContext]="{
-        dayEvent: dayEvent,
-        tooltipPlacement: tooltipPlacement,
-        eventClicked: eventClicked,
-        tooltipTemplate: tooltipTemplate,
-        tooltipAppendToBody: tooltipAppendToBody
-      }">
-    </ng-template>
-  `
+                template: "\n    <ng-template\n      #defaultTemplate\n      let-dayEvent=\"dayEvent\"\n      let-tooltipPlacement=\"tooltipPlacement\"\n      let-eventClicked=\"eventClicked\"\n      let-tooltipTemplate=\"tooltipTemplate\"\n      let-tooltipAppendToBody=\"tooltipAppendToBody\">\n      <div\n        class=\"cal-event\"\n        [style.backgroundColor]=\"dayEvent.event.color.secondary\"\n        [style.borderColor]=\"dayEvent.event.color.primary\"\n        [mwlCalendarTooltip]=\"dayEvent.event.title | calendarEventTitle:'dayTooltip':dayEvent.event\"\n        [tooltipPlacement]=\"tooltipPlacement\"\n        [tooltipEvent]=\"dayEvent.event\"\n        [tooltipTemplate]=\"tooltipTemplate\"\n        [tooltipAppendToBody]=\"tooltipAppendToBody\">\n        <mwl-calendar-event-actions [event]=\"dayEvent.event\"></mwl-calendar-event-actions>\n        <mwl-calendar-event-title\n          [event]=\"dayEvent.event\"\n          [customTemplate]=\"eventTitleTemplate\"\n          view=\"day\"\n          (mwlClick)=\"eventClicked.emit()\">\n        </mwl-calendar-event-title>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        dayEvent: dayEvent,\n        tooltipPlacement: tooltipPlacement,\n        eventClicked: eventClicked,\n        tooltipTemplate: tooltipTemplate,\n        tooltipAppendToBody: tooltipAppendToBody\n      }\">\n    </ng-template>\n  "
             },] },
 ];
 /** @nocollapse */
-CalendarDayViewEventComponent.ctorParameters = () => [];
+CalendarDayViewEventComponent.ctorParameters = function () { return []; };
 CalendarDayViewEventComponent.propDecorators = {
     "dayEvent": [{ type: Input },],
     "tooltipPlacement": [{ type: Input },],
@@ -2678,13 +2310,15 @@ CalendarDayViewEventComponent.propDecorators = {
     "tooltipTemplate": [{ type: Input },],
     "eventClicked": [{ type: Output },],
 };
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-class CalendarDayModule {
-}
+var CalendarDayModule = /** @class */ (function () {
+    function CalendarDayModule() {
+    }
+    return CalendarDayModule;
+}());
 CalendarDayModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
@@ -2710,8 +2344,7 @@ CalendarDayModule.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarDayModule.ctorParameters = () => [];
-
+CalendarDayModule.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -2731,12 +2364,15 @@ CalendarDayModule.ctorParameters = () => [];
  * ```
  *
  */
-class CalendarModule {
+var CalendarModule = /** @class */ (function () {
+    function CalendarModule() {
+    }
     /**
      * @param {?=} config
      * @return {?}
      */
-    static forRoot(config = {}) {
+    CalendarModule.forRoot = function (config) {
+        if (config === void 0) { config = {}; }
         return {
             ngModule: CalendarModule,
             providers: [
@@ -2746,8 +2382,9 @@ class CalendarModule {
                 config.utils || CalendarUtils
             ]
         };
-    }
-}
+    };
+    return CalendarModule;
+}());
 CalendarModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
@@ -2765,13 +2402,11 @@ CalendarModule.decorators = [
             },] },
 ];
 /** @nocollapse */
-CalendarModule.ctorParameters = () => [];
-
+CalendarModule.ctorParameters = function () { return []; };
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
@@ -2779,7 +2414,6 @@ CalendarModule.ctorParameters = () => [];
 /**
  * Generated bundle index. Do not edit.
  */
-
 export { CalendarModule, CalendarCommonModule, CalendarEventTitleFormatter, MOMENT, CalendarMomentDateFormatter, CalendarNativeDateFormatter, CalendarAngularDateFormatter, CalendarDateFormatter, CalendarUtils, CalendarMonthViewComponent, CalendarMonthModule, CalendarWeekViewComponent, CalendarWeekModule, CalendarDayViewComponent, CalendarDayModule, CalendarDatePipe as ɵh, CalendarEventActionsComponent as ɵa, CalendarEventTitleComponent as ɵb, CalendarEventTitlePipe as ɵi, CalendarNextViewDirective as ɵf, CalendarPreviousViewDirective as ɵe, CalendarTodayDirective as ɵg, CalendarTooltipDirective as ɵd, CalendarTooltipWindowComponent as ɵc, ClickDirective as ɵj, CalendarAllDayEventComponent as ɵp, CalendarDayViewEventComponent as ɵr, CalendarDayViewHourSegmentComponent as ɵq, CalendarMonthCellComponent as ɵk, CalendarMonthViewHeaderComponent as ɵm, CalendarOpenDayEventsComponent as ɵl, CalendarWeekViewEventComponent as ɵo, CalendarWeekViewHeaderComponent as ɵn };
 export { DAYS_OF_WEEK } from 'calendar-utils';
-//# sourceMappingURL=angular-calendar-coach-plus.js.map
+//# sourceMappingURL=angular-calendar.js.map
