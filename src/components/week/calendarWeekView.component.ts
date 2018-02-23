@@ -53,41 +53,44 @@ export interface WeekViewEventResize {
         (dayHeaderClicked)="dayHeaderClicked.emit($event)"
         (eventDropped)="eventTimesChanged.emit($event)">
       </mwl-calendar-week-view-header>
-      <div *ngFor="let eventRow of eventRows" #eventRowContainer class="cal-events-row">
-        <div
-          *ngFor="let weekEvent of eventRow.row"
-          #event
-          class="cal-event-container"
-          [class.cal-draggable]="weekEvent.event.draggable"
-          [class.cal-starts-within-week]="!weekEvent.startsBeforeWeek"
-          [class.cal-ends-within-week]="!weekEvent.endsAfterWeek"
-          [ngClass]="weekEvent.event?.cssClass"
-          [style.width]="((100 / days.length) * weekEvent.span) + '%'"
-          [style.marginLeft]="((100 / days.length) * weekEvent.offset) + '%'"
-          mwlResizable
-          [resizeEdges]="{left: weekEvent.event?.resizable?.beforeStart, right: weekEvent.event?.resizable?.afterEnd}"
-          [resizeSnapGrid]="{left: dayColumnWidth, right: dayColumnWidth}"
-          [validateResize]="validateResize"
-          (resizeStart)="resizeStarted(weekViewContainer, weekEvent, $event)"
-          (resizing)="resizing(weekEvent, $event, dayColumnWidth)"
-          (resizeEnd)="resizeEnded(weekEvent)"
-          mwlDraggable
-          [dragAxis]="{x: weekEvent.event.draggable && currentResizes.size === 0, y: false}"
-          [dragSnapGrid]="{x: dayColumnWidth}"
-          [validateDrag]="validateDrag"
-          (dragStart)="dragStart(weekViewContainer, event)"
-          (dragEnd)="eventDragged(weekEvent, $event.x, dayColumnWidth)">
-          <mwl-calendar-week-view-event
-            [weekEvent]="weekEvent"
-            [tooltipPlacement]="tooltipPlacement"
-            [tooltipTemplate]="tooltipTemplate"
-            [tooltipAppendToBody]="tooltipAppendToBody"
-            [customTemplate]="eventTemplate"
-            [eventTitleTemplate]="eventTitleTemplate"
-            (eventClicked)="eventClicked.emit({event: weekEvent.event})">
-          </mwl-calendar-week-view-event>
-        </div>
-      </div>
+      <mwl-calendar-day-view 
+        *ngFor="let day of days" [viewDate]="day.date" [events]="events">
+      </mwl-calendar-day-view>
+      <!--<div *ngFor="let eventRow of eventRows" #eventRowContainer class="cal-events-row">-->
+        <!--<div-->
+          <!--*ngFor="let weekEvent of eventRow.row"-->
+          <!--#event-->
+          <!--class="cal-event-container"-->
+          <!--[class.cal-draggable]="weekEvent.event.draggable"-->
+          <!--[class.cal-starts-within-week]="!weekEvent.startsBeforeWeek"-->
+          <!--[class.cal-ends-within-week]="!weekEvent.endsAfterWeek"-->
+          <!--[ngClass]="weekEvent.event?.cssClass"-->
+          <!--[style.width]="((100 / days.length) * weekEvent.span) + '%'"-->
+          <!--[style.marginLeft]="((100 / days.length) * weekEvent.offset) + '%'"-->
+          <!--mwlResizable-->
+          <!--[resizeEdges]="{left: weekEvent.event?.resizable?.beforeStart, right: weekEvent.event?.resizable?.afterEnd}"-->
+          <!--[resizeSnapGrid]="{left: dayColumnWidth, right: dayColumnWidth}"-->
+          <!--[validateResize]="validateResize"-->
+          <!--(resizeStart)="resizeStarted(weekViewContainer, weekEvent, $event)"-->
+          <!--(resizing)="resizing(weekEvent, $event, dayColumnWidth)"-->
+          <!--(resizeEnd)="resizeEnded(weekEvent)"-->
+          <!--mwlDraggable-->
+          <!--[dragAxis]="{x: weekEvent.event.draggable && currentResizes.size === 0, y: false}"-->
+          <!--[dragSnapGrid]="{x: dayColumnWidth}"-->
+          <!--[validateDrag]="validateDrag"-->
+          <!--(dragStart)="dragStart(weekViewContainer, event)"-->
+          <!--(dragEnd)="eventDragged(weekEvent, $event.x, dayColumnWidth)">-->
+          <!--<mwl-calendar-week-view-event-->
+            <!--[weekEvent]="weekEvent"-->
+            <!--[tooltipPlacement]="tooltipPlacement"-->
+            <!--[tooltipTemplate]="tooltipTemplate"-->
+            <!--[tooltipAppendToBody]="tooltipAppendToBody"-->
+            <!--[customTemplate]="eventTemplate"-->
+            <!--[eventTitleTemplate]="eventTitleTemplate"-->
+            <!--(eventClicked)="eventClicked.emit({event: weekEvent.event})">-->
+          <!--</mwl-calendar-week-view-event>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   `
 })
