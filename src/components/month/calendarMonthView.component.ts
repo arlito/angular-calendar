@@ -58,6 +58,7 @@ import { CalendarUtils } from '../../providers/calendarUtils.provider';
               [class.cal-drag-over]="day.dragOver"
               [ngClass]="day?.cssClass"
               [day]="day"
+              [rowIndex]="rowIndex"
               [openDay]="openDay"
               [locale]="locale"
               [tooltipPlacement]="tooltipPlacement"

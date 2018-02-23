@@ -15,6 +15,7 @@ import { MonthViewDay, CalendarEvent } from 'calendar-utils';
       let-day="day"
       let-openDay="openDay"
       let-locale="locale"
+      ler-rowIndex="rowIndex"
       let-tooltipPlacement="tooltipPlacement"
       let-highlightDay="highlightDay"
       let-unhighlightDay="unhighlightDay"
@@ -56,7 +57,8 @@ import { MonthViewDay, CalendarEvent } from 'calendar-utils';
         unhighlightDay: unhighlightDay,
         eventClicked: eventClicked,
         tooltipTemplate: tooltipTemplate,
-        tooltipAppendToBody: tooltipAppendToBody
+        tooltipAppendToBody: tooltipAppendToBody,
+        rowIndex: rowIndex
       }">
     </ng-template>
   `,
@@ -87,6 +89,8 @@ export class CalendarMonthCellComponent {
   @Input() customTemplate: TemplateRef<any>;
 
   @Input() tooltipTemplate: TemplateRef<any>;
+
+  @Input() rowIndex: number;
 
   @Output() highlightDay: EventEmitter<any> = new EventEmitter();
 

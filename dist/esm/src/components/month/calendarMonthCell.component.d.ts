@@ -8,6 +8,7 @@ export declare class CalendarMonthCellComponent {
     tooltipAppendToBody: boolean;
     customTemplate: TemplateRef<any>;
     tooltipTemplate: TemplateRef<any>;
+    rowIndex: number;
     highlightDay: EventEmitter<any>;
     unhighlightDay: EventEmitter<any>;
     eventClicked: EventEmitter<{
